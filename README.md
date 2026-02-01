@@ -87,6 +87,9 @@ Then open [http://localhost:6006](http://localhost:6006) in your browser.
 ```
 .
 ├── .storybook/           # Storybook configuration
+├── mcp-server/           # Model Context Protocol server
+│   ├── src/              # MCP server source code
+│   └── README.md         # MCP server documentation
 ├── src/
 │   ├── app/              # Next.js app directory
 │   ├── components/
@@ -96,6 +99,29 @@ Then open [http://localhost:6006](http://localhost:6006) in your browser.
 ├── tailwind.config.ts    # Tailwind CSS configuration
 └── tsconfig.json         # TypeScript configuration
 ```
+
+## MCP Server
+
+This repository includes a [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server that provides programmatic access to the design system components. The MCP server allows AI assistants like Claude to query and use components.
+
+### Quick Start
+
+```bash
+cd mcp-server
+npm install
+npm run build
+npm start
+```
+
+For detailed setup instructions, configuration examples, and usage guide, see the [MCP Server README](mcp-server/README.md).
+
+### Available Tools
+
+- **list_components** - List all available components
+- **get_component_info** - Get detailed component information
+- **get_component_code** - Retrieve component source code
+- **generate_usage_example** - Generate custom usage examples
+- **search_components** - Search components by keyword
 
 ## License
 

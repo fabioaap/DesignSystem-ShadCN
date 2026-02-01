@@ -1,110 +1,83 @@
 # DesignSystem-ShadCN
 
-A modern design system built with [shadcn/ui](https://ui.shadcn.com/) components and [Storybook](https://storybook.js.org/).
+Um sistema de design moderno construído com componentes [shadcn/ui](https://ui.shadcn.com/) e [Storybook](https://storybook.js.org/).
 
-## Features
+## ✨ Características
 
-- 🎨 Built with shadcn/ui components
-- 📚 Interactive component documentation with Storybook
-- ⚡️ Next.js 16 with App Router
-- 🎭 TypeScript support
-- 🌈 Tailwind CSS for styling
-- 🎯 ESLint for code quality
+- 🎨 Construído com componentes shadcn/ui
+- 📚 Documentação interativa de componentes com Storybook
+- ⚡️ Next.js 16 com App Router
+- 🎭 Suporte a TypeScript
+- 🌈 Tailwind CSS para estilização
+- 🎯 ESLint para qualidade de código
+- 🤖 Servidor MCP para integração com IAs
 
-## Getting Started
+## 🚀 Começando
 
-### Prerequisites
+### Pré-requisitos
 
-- Node.js 18+ 
-- pnpm (recommended) or npm
+- Node.js 18+
+- pnpm (recomendado) ou npm
 
-### Installation
+### Instalação
 
 ```bash
-# Install dependencies
+# Instalar dependências
 pnpm install
 
-# Or with npm
+# Ou com npm
 npm install
 ```
 
-### Development
+### Desenvolvimento
 
 ```bash
-# Run Next.js development server
+# Executar servidor de desenvolvimento Next.js
 pnpm dev
 
-# Run Storybook
+# Executar Storybook
 pnpm storybook
 ```
 
 ### Build
 
 ```bash
-# Build Next.js app
+# Build da aplicação Next.js
 pnpm build
 
-# Build Storybook
+# Build do Storybook
 pnpm build-storybook
 ```
 
-## Components
+## 📚 Storybook Online
 
-This design system includes the following shadcn/ui components:
+Acesse nosso catálogo de componentes publicado:
 
-- **Button** - Various button variants (default, destructive, outline, secondary, ghost, link)
-- **Card** - Card component with header, content, and footer
-- **Input** - Text input component
-- **Label** - Label component for form fields
+**[Ver Storybook →](https://fabioaap.github.io/DesignSystem-ShadCN/)**
 
-## 📚 Storybook
-
-Access our component catalog online:
-
-**[View Storybook →](https://fabioaap.github.io/DesignSystem-ShadCN/)**
-
-### Local Development
+### Desenvolvimento Local
 
 ```bash
-# Run Storybook locally
+# Executar Storybook localmente
 pnpm storybook
-
-# Build Storybook
-pnpm build-storybook
 ```
 
-Then open [http://localhost:6006](http://localhost:6006) in your browser.
+Depois abra [http://localhost:6006](http://localhost:6006) no seu navegador.
 
-### Available Components
+## 🎨 Componentes
 
-- **Button** - Buttons with variants (default, destructive, outline, secondary, ghost, link)
-- **Card** - Cards for structured content
-- **Input** - Text input fields
-- **Label** - Labels for forms
+Este sistema de design inclui os seguintes componentes shadcn/ui:
 
-## Project Structure
+- **Button** - Botões com várias variantes (default, destructive, outline, secondary, ghost, link)
+- **Card** - Componente de card com header, conteúdo e footer
+- **Input** - Campo de entrada de texto
+- **Label** - Rótulo para campos de formulário
 
-```
-.
-├── .storybook/           # Storybook configuration
-├── mcp-server/           # Model Context Protocol server
-│   ├── src/              # MCP server source code
-│   └── README.md         # MCP server documentation
-├── src/
-│   ├── app/              # Next.js app directory
-│   ├── components/
-│   │   └── ui/           # shadcn/ui components
-│   └── lib/              # Utility functions
-├── components.json       # shadcn/ui configuration
-├── tailwind.config.ts    # Tailwind CSS configuration
-└── tsconfig.json         # TypeScript configuration
-```
+## 🤖 Servidor MCP
 
-## MCP Server
+Este projeto inclui um servidor MCP (Model Context Protocol) que permite que IAs e desenvolvedores consultem e utilizem o Design System de forma programática.
 
-This repository includes a [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server that provides programmatic access to the design system components. The MCP server allows AI assistants like Claude to query and use components.
-
-### Quick Start
+### Início Rápido
 
 ```bash
 cd mcp-server
@@ -113,16 +86,48 @@ npm run build
 npm start
 ```
 
-For detailed setup instructions, configuration examples, and usage guide, see the [MCP Server README](mcp-server/README.md).
+Para instruções detalhadas de configuração, exemplos de configuração e guia de uso, consulte o [README do Servidor MCP](mcp-server/README.md).
 
-### Available Tools
+### Ferramentas Disponíveis
 
-- **list_components** - List all available components
-- **get_component_info** - Get detailed component information
-- **get_component_code** - Retrieve component source code
-- **generate_usage_example** - Generate custom usage examples
-- **search_components** - Search components by keyword
+- `list_components` - Lista todos os componentes disponíveis
+- `get_component_info` - Obtém informações detalhadas sobre um componente
+- `get_component_code` - Retorna o código fonte de um componente
+- `generate_usage_example` - Gera exemplos de uso personalizados
+- `search_components` - Busca componentes por funcionalidade
 
-## License
+## 📁 Estrutura do Projeto
+
+```
+.
+├── .github/
+│   └── workflows/        # GitHub Actions workflows
+├── .storybook/           # Configuração do Storybook
+├── mcp-server/           # Servidor MCP para integração com IAs
+│   ├── src/              # Código fonte do servidor MCP
+│   └── README.md         # Documentação do servidor MCP
+├── src/
+│   ├── app/              # Diretório da aplicação Next.js
+│   ├── components/
+│   │   └── ui/           # Componentes shadcn/ui
+│   └── lib/              # Funções utilitárias
+├── components.json       # Configuração shadcn/ui
+├── tailwind.config.ts    # Configuração Tailwind CSS
+└── tsconfig.json         # Configuração TypeScript
+```
+
+## 🤝 Contribuindo
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests.
+
+## 📄 Licença
 
 ISC
+
+## 👥 Autores
+
+- **Fabio Alves** - [@fabioaap](https://github.com/fabioaap)
+
+---
+
+**Desenvolvido com ❤️ usando shadcn/ui e Storybook**

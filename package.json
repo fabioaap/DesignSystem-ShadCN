@@ -1,7 +1,7 @@
 {
   "name": "DesignSystem-ShadCN",
   "version": "1.0.0",
-  "description": "",
+  "description": "Sistema de design moderno com componentes shadcn/ui, Storybook e servidor MCP para integração com IAs",
   "main": "index.js",
   "scripts": {
     "dev": "next dev",
@@ -11,8 +11,24 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "design-system",
+    "shadcn-ui",
+    "storybook",
+    "react",
+    "nextjs",
+    "typescript",
+    "tailwindcss",
+    "ui-components",
+    "component-library",
+    "mcp",
+    "model-context-protocol",
+    "radix-ui",
+    "design-tokens",
+    "frontend",
+    "ui-kit"
+  ],
+  "author": "Fabio Alves <fabioaap>",
   "license": "ISC",
   "packageManager": "pnpm@10.28.2",
   "dependencies": {

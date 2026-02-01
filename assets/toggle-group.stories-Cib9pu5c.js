@@ -1,0 +1,37 @@
+import{j as e}from"./jsx-runtime-D504mV7P.js";import{R as c,r as x}from"./iframe-B_O_Lmrz.js";import{c as O}from"./index-hQSASD9G.js";import{P as N}from"./index-BiErVdCm.js";import{I as U,c as C,R as k}from"./index-BlxrgQFk.js";import{a as $,t as L,B as b,I as j,U as y}from"./toggle-YFqBxbUf.js";import{u as P}from"./index-FjpTna57.js";import{u as H}from"./index-9H9P9Kel.js";import{c as R}from"./utils-CDN07tui.js";import"./preload-helper-BvMMX7ns.js";import"./index-BZ7zkwJU.js";import"./index-Yqugrw3y.js";import"./index-C9lDhzoQ.js";import"./index-Baaj9jgv.js";import"./index-BnIzK0Qe.js";import"./index-B26hlpGq.js";import"./createLucideIcon-8xmj4FwI.js";import"./index-B_jtOnfb.js";var g="ToggleGroup",[V]=O(g,[C]),S=C(),_=c.forwardRef((l,o)=>{const{type:t,...a}=l;if(t==="single"){const r=a;return e.jsx(J,{...r,ref:o})}if(t==="multiple"){const r=a;return e.jsx(K,{...r,ref:o})}throw new Error(`Missing prop \`type\` expected on \`${g}\``)});_.displayName=g;var[z,E]=V(g),J=c.forwardRef((l,o)=>{const{value:t,defaultValue:a,onValueChange:r=()=>{},...n}=l,[s,i]=P({prop:t,defaultProp:a??"",onChange:r,caller:g});return e.jsx(z,{scope:l.__scopeToggleGroup,type:"single",value:c.useMemo(()=>s?[s]:[],[s]),onItemActivate:i,onItemDeactivate:c.useCallback(()=>i(""),[i]),children:e.jsx(B,{...n,ref:o})})}),K=c.forwardRef((l,o)=>{const{value:t,defaultValue:a,onValueChange:r=()=>{},...n}=l,[s,i]=P({prop:t,defaultProp:a??[],onChange:r,caller:g}),p=c.useCallback(m=>i((v=[])=>[...v,m]),[i]),I=c.useCallback(m=>i((v=[])=>v.filter(F=>F!==m)),[i]);return e.jsx(z,{scope:l.__scopeToggleGroup,type:"multiple",value:s,onItemActivate:p,onItemDeactivate:I,children:e.jsx(B,{...n,ref:o})})});_.displayName=g;var[Q,W]=V(g),B=c.forwardRef((l,o)=>{const{__scopeToggleGroup:t,disabled:a=!1,rovingFocus:r=!0,orientation:n,dir:s,loop:i=!0,...p}=l,I=S(t),m=H(s),v={role:"group",dir:m,...p};return e.jsx(Q,{scope:t,rovingFocus:r,disabled:a,children:r?e.jsx(k,{asChild:!0,...I,orientation:n,dir:m,loop:i,children:e.jsx(N.div,{...v,ref:o})}):e.jsx(N.div,{...v,ref:o})})}),h="ToggleGroupItem",D=c.forwardRef((l,o)=>{const t=E(h,l.__scopeToggleGroup),a=W(h,l.__scopeToggleGroup),r=S(l.__scopeToggleGroup),n=t.value.includes(l.value),s=a.disabled||l.disabled,i={...l,pressed:n,disabled:s},p=c.useRef(null);return a.rovingFocus?e.jsx(U,{asChild:!0,...r,focusable:!s,active:n,ref:p,children:e.jsx(w,{...i,ref:o})}):e.jsx(w,{...i,ref:o})});D.displayName=h;var w=c.forwardRef((l,o)=>{const{__scopeToggleGroup:t,value:a,...r}=l,n=E(h,t),s={role:"radio","aria-checked":l.pressed,"aria-pressed":void 0},i=n.type==="single"?s:void 0;return e.jsx($,{...i,...r,ref:o,onPressedChange:p=>{p?n.onItemActivate(a):n.onItemDeactivate(a)}})}),M=_,q=D;const A=x.createContext({size:"default",variant:"default"}),d=x.forwardRef(({className:l,variant:o,size:t,children:a,...r},n)=>e.jsx(M,{ref:n,className:R("flex items-center justify-center gap-1",l),...r,children:e.jsx(A.Provider,{value:{variant:o,size:t},children:a})}));d.displayName=M.displayName;const u=x.forwardRef(({className:l,children:o,variant:t,size:a,...r},n)=>{const s=x.useContext(A);return e.jsx(q,{ref:n,className:R(L({variant:s.variant||t,size:s.size||a}),l),...r,children:o})});u.displayName=q.displayName;try{d.displayName="ToggleGroup",d.__docgenInfo={description:"",displayName:"ToggleGroup",props:{asChild:{defaultValue:null,description:"",name:"asChild",required:!1,type:{name:"boolean | undefined"}},size:{defaultValue:null,description:"",name:"size",required:!1,type:{name:'"default" | "sm" | "lg" | null | undefined'}},variant:{defaultValue:null,description:"",name:"variant",required:!1,type:{name:'"default" | "outline" | null | undefined'}}}}}catch{}try{u.displayName="ToggleGroupItem",u.__docgenInfo={description:"",displayName:"ToggleGroupItem",props:{asChild:{defaultValue:null,description:"",name:"asChild",required:!1,type:{name:"boolean | undefined"}},size:{defaultValue:null,description:"",name:"size",required:!1,type:{name:'"default" | "sm" | "lg" | null | undefined'}},variant:{defaultValue:null,description:"",name:"variant",required:!1,type:{name:'"default" | "outline" | null | undefined'}}}}}catch{}const ve={title:"Organisms/ToggleGroup",component:d,parameters:{layout:"centered"},tags:["autodocs"],argTypes:{variant:{control:"select",options:["default","outline"]},size:{control:"select",options:["default","sm","lg"]}}},T={render:()=>e.jsxs(d,{type:"multiple",children:[e.jsx(u,{value:"bold","aria-label":"Toggle bold",children:e.jsx(b,{className:"h-4 w-4"})}),e.jsx(u,{value:"italic","aria-label":"Toggle italic",children:e.jsx(j,{className:"h-4 w-4"})}),e.jsx(u,{value:"underline","aria-label":"Toggle underline",children:e.jsx(y,{className:"h-4 w-4"})})]})},f={render:()=>e.jsxs(d,{type:"single",children:[e.jsx(u,{value:"bold","aria-label":"Toggle bold",children:e.jsx(b,{className:"h-4 w-4"})}),e.jsx(u,{value:"italic","aria-label":"Toggle italic",children:e.jsx(j,{className:"h-4 w-4"})}),e.jsx(u,{value:"underline","aria-label":"Toggle underline",children:e.jsx(y,{className:"h-4 w-4"})})]})},G={render:()=>e.jsxs(d,{type:"multiple",variant:"outline",children:[e.jsx(u,{value:"bold","aria-label":"Toggle bold",children:e.jsx(b,{className:"h-4 w-4"})}),e.jsx(u,{value:"italic","aria-label":"Toggle italic",children:e.jsx(j,{className:"h-4 w-4"})}),e.jsx(u,{value:"underline","aria-label":"Toggle underline",children:e.jsx(y,{className:"h-4 w-4"})})]})};T.parameters={...T.parameters,docs:{...T.parameters?.docs,source:{originalSource:`{
+  render: () => <ToggleGroup type="multiple">
+            <ToggleGroupItem value="bold" aria-label="Toggle bold">
+                <Bold className="h-4 w-4" />
+            </ToggleGroupItem>
+            <ToggleGroupItem value="italic" aria-label="Toggle italic">
+                <Italic className="h-4 w-4" />
+            </ToggleGroupItem>
+            <ToggleGroupItem value="underline" aria-label="Toggle underline">
+                <Underline className="h-4 w-4" />
+            </ToggleGroupItem>
+        </ToggleGroup>
+}`,...T.parameters?.docs?.source}}};f.parameters={...f.parameters,docs:{...f.parameters?.docs,source:{originalSource:`{
+  render: () => <ToggleGroup type="single">
+            <ToggleGroupItem value="bold" aria-label="Toggle bold">
+                <Bold className="h-4 w-4" />
+            </ToggleGroupItem>
+            <ToggleGroupItem value="italic" aria-label="Toggle italic">
+                <Italic className="h-4 w-4" />
+            </ToggleGroupItem>
+            <ToggleGroupItem value="underline" aria-label="Toggle underline">
+                <Underline className="h-4 w-4" />
+            </ToggleGroupItem>
+        </ToggleGroup>
+}`,...f.parameters?.docs?.source}}};G.parameters={...G.parameters,docs:{...G.parameters?.docs,source:{originalSource:`{
+  render: () => <ToggleGroup type="multiple" variant="outline">
+            <ToggleGroupItem value="bold" aria-label="Toggle bold">
+                <Bold className="h-4 w-4" />
+            </ToggleGroupItem>
+            <ToggleGroupItem value="italic" aria-label="Toggle italic">
+                <Italic className="h-4 w-4" />
+            </ToggleGroupItem>
+            <ToggleGroupItem value="underline" aria-label="Toggle underline">
+                <Underline className="h-4 w-4" />
+            </ToggleGroupItem>
+        </ToggleGroup>
+}`,...G.parameters?.docs?.source}}};const Te=["Default","Single","Outline"];export{T as Default,G as Outline,f as Single,Te as __namedExportsOrder,ve as default};

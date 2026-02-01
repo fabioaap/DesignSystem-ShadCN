@@ -1,0 +1,6 @@
+import{j as r}from"./jsx-runtime-D504mV7P.js";import{S as o}from"./switch-ATeiYld7.js";import{L as t}from"./label-m1Edf8ai.js";import"./iframe-B_O_Lmrz.js";import"./preload-helper-BvMMX7ns.js";import"./index-BiErVdCm.js";import"./index-BZ7zkwJU.js";import"./index-Yqugrw3y.js";import"./index-hQSASD9G.js";import"./index-FjpTna57.js";import"./index-BnIzK0Qe.js";import"./index-BVY6hRgR.js";import"./index-CvjVisU5.js";import"./utils-CDN07tui.js";import"./index-C7IQjYoj.js";import"./index-CU_znxRc.js";import"./index-B_jtOnfb.js";const w={title:"Atoms/Switch",component:o,parameters:{layout:"centered",docs:{description:{component:"Toggle switch para ativar/desativar opções."}}},tags:["autodocs"]},e={render:()=>r.jsxs("div",{className:"flex items-center space-x-2",children:[r.jsx(o,{id:"airplane-mode"}),r.jsx(t,{htmlFor:"airplane-mode",children:"Modo avião"})]})};e.parameters={...e.parameters,docs:{...e.parameters?.docs,source:{originalSource:`{
+  render: () => <div className="flex items-center space-x-2">
+      <Switch id="airplane-mode" />
+      <Label htmlFor="airplane-mode">Modo avião</Label>
+    </div>
+}`,...e.parameters?.docs?.source}}};const L=["Default"];export{e as Default,L as __namedExportsOrder,w as default};

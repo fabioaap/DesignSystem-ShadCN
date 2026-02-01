@@ -1,0 +1,1 @@
+import{j as t}from"./jsx-runtime-D504mV7P.js";import{c as a}from"./utils-CDN07tui.js";function r({className:e,...o}){return t.jsx("div",{className:a("animate-pulse rounded-md bg-primary/10",e),...o})}try{r.displayName="Skeleton",r.__docgenInfo={description:"",displayName:"Skeleton",props:{}}}catch{}export{r as S};

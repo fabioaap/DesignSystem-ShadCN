@@ -1,0 +1,278 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Documentation/Figma Integration" />
+
+# 🎨 Integração com Figma
+
+Este Design System usa o **@storybook/addon-designs** para integrar designs do Figma diretamente no Storybook.
+
+## Como Usar
+
+### 1. Obter URL do Figma
+
+No Figma, abra o arquivo de design e:
+1. Selecione o frame/component que deseja vincular
+2. Clique com o botão direito → **Copy link**
+3. Ou use o botão **Share** no canto superior direito
+
+A URL terá este formato:
+```
+https://www.figma.com/file/ABC123/Design-System?node-id=1234:5678
+```
+
+### 2. Adicionar na Story
+
+Adicione o parâmetro `design` na configuração da story:
+
+```tsx
+import type { Meta, StoryObj } from '@storybook/react';
+import { Button } from './button';
+
+const meta = {
+  title: 'Components/Button',
+  component: Button,
+  parameters: {
+    layout: 'centered',
+    // 👇 Adicione aqui
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/ABC123/Design-System?node-id=1234:5678',
+    },
+  },
+} satisfies Meta<typeof Button>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Primary: Story = {
+  args: {
+    children: 'Button',
+  },
+  // Pode sobrescrever o design por variante
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/ABC123/Design-System?node-id=9999:0000',
+    },
+  },
+};
+```
+
+### 3. Visualizar no Storybook
+
+Após adicionar a URL, uma nova aba **Design** aparecerá no painel inferior do Storybook, mostrando o design do Figma embutido.
+
+## Tipos de Integração Suportados
+
+O addon suporta várias ferramentas:
+
+### Figma
+```tsx
+design: {
+  type: 'figma',
+  url: 'https://www.figma.com/file/...',
+}
+```
+
+### FigSpec (Figma + Anotações)
+```tsx
+design: {
+  type: 'figspec',
+  url: 'https://www.figma.com/file/...',
+  accessToken: 'seu-token-figma', // Opcional para arquivos privados
+}
+```
+
+### Múltiplos Designs
+```tsx
+design: [
+  {
+    type: 'figma',
+    name: 'Desktop',
+    url: 'https://www.figma.com/file/.../desktop',
+  },
+  {
+    type: 'figma',
+    name: 'Mobile',
+    url: 'https://www.figma.com/file/.../mobile',
+  },
+]
+```
+
+### Outras Ferramentas
+```tsx
+// Adobe XD
+design: {
+  type: 'link',
+  url: 'https://xd.adobe.com/...',
+}
+
+// InVision
+design: {
+  type: 'iframe',
+  url: 'https://invis.io/...',
+}
+
+// Sketch Cloud
+design: {
+  type: 'link',
+  url: 'https://www.sketch.com/s/...',
+}
+
+// PDF
+design: {
+  type: 'pdf',
+  url: '/designs/component-spec.pdf',
+}
+
+// Imagem
+design: {
+  type: 'image',
+  url: '/designs/component-mockup.png',
+}
+```
+
+## Organização Recomendada
+
+### Por Componente
+Adicione o design principal no `meta` e variações específicas em cada story:
+
+```tsx
+const meta = {
+  title: 'Components/Button',
+  component: Button,
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/ABC/Button-Component',
+    },
+  },
+} satisfies Meta<typeof Button>;
+
+export const Primary: Story = {
+  // Usa o design do meta por padrão
+};
+
+export const Outlined: Story = {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/ABC/Button-Outlined',
+    },
+  },
+};
+```
+
+### Por Categoria
+Organize designs por sistema:
+
+```tsx
+// Design Tokens
+design: {
+  type: 'figma',
+  url: 'https://www.figma.com/file/ABC/Design-Tokens',
+}
+
+// Components
+design: {
+  type: 'figma',
+  url: 'https://www.figma.com/file/ABC/Components',
+}
+
+// Patterns
+design: {
+  type: 'figma',
+  url: 'https://www.figma.com/file/ABC/Patterns',
+}
+```
+
+## Arquivos Privados do Figma
+
+Para acessar arquivos privados, você precisa de um token de acesso:
+
+1. Vá em **Figma → Settings → Personal access tokens**
+2. Gere um novo token
+3. Adicione ao `.env.local`:
+
+```bash
+STORYBOOK_FIGMA_ACCESS_TOKEN=figd_your_token_here
+```
+
+4. Use na story:
+
+```tsx
+design: {
+  type: 'figma',
+  url: 'https://www.figma.com/file/...',
+  accessToken: process.env.STORYBOOK_FIGMA_ACCESS_TOKEN,
+}
+```
+
+⚠️ **Segurança**: Nunca commite tokens no Git. Use variáveis de ambiente.
+
+## Exemplo Completo
+
+```tsx
+import type { Meta, StoryObj } from '@storybook/react';
+import { Card } from './card';
+
+const meta = {
+  title: 'Components/Card',
+  component: Card,
+  parameters: {
+    layout: 'centered',
+    design: [
+      {
+        type: 'figma',
+        name: 'Design Desktop',
+        url: 'https://www.figma.com/file/ABC/Card?node-id=100:200',
+      },
+      {
+        type: 'figma',
+        name: 'Design Mobile',
+        url: 'https://www.figma.com/file/ABC/Card?node-id=100:300',
+      },
+      {
+        type: 'link',
+        name: 'Documentação',
+        url: 'https://design-system.com/docs/card',
+      },
+    ],
+  },
+} satisfies Meta<typeof Card>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
+  args: {
+    children: <p>Card content</p>,
+  },
+};
+
+export const Interactive: Story = {
+  args: {
+    children: <p>Interactive card</p>,
+  },
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/proto/ABC/Card-Interactive?node-id=400:500',
+    },
+  },
+};
+```
+
+## Próximos Passos
+
+1. **Crie arquivo Figma** com todos os componentes do Design System
+2. **Vincule cada componente** usando o node-id específico
+3. **Documente estados** (hover, active, disabled, etc.)
+4. **Adicione anotações** com specs de spacing, typography, colors
+5. **Mantenha sincronizado** com as implementações no código
+
+## Recursos
+
+- [Addon Designs Documentation](https://github.com/storybookjs/addon-designs)
+- [Figma API](https://www.figma.com/developers/api)
+- [Best Practices](https://storybook.js.org/docs/writing-stories/design-system)

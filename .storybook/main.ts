@@ -12,6 +12,13 @@ const config: StorybookConfig = {
     "@storybook/addon-docs",
     "@storybook/addon-onboarding"
   ],
-  "framework": "@storybook/nextjs-vite"
+  "framework": "@storybook/nextjs-vite",
+  
+  // Para GitHub Pages com subpath
+  viteFinal: async (config) => {
+    // Set base path for GitHub Pages
+    config.base = process.env.NODE_ENV === 'production' ? '/DesignSystem-ShadCN/' : '/';
+    return config;
+  }
 };
 export default config;

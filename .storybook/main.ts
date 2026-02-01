@@ -25,11 +25,14 @@ const config: StorybookConfig = {
   staticDirs: ['../public'],
   
   // Configuração para GitHub Pages
-  managerHead: (head) => `
-    ${head}
-    <base href="/DesignSystem-ShadCN/">
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  `,
+  managerHead: (head) => {
+    const basePath = process.env.NODE_ENV === 'production' ? '/DesignSystem-ShadCN/' : '/';
+    return `
+      ${head}
+      <base href="${basePath}">
+      <link rel="icon" type="image/svg+xml" href="${basePath}favicon.svg" />
+    `;
+  },
   
   typescript: {
     reactDocgen: 'react-docgen-typescript',

@@ -1,4 +1,4 @@
-import { create } from '@storybook/theming/create';
+import { create } from 'storybook/theming/create';
 
 // Tema Dark (padrão)
 export const darkTheme = create({

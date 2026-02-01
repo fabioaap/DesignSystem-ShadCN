@@ -1,0 +1,400 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Introduction/Vue and Vanilla Support" />
+
+# Vue e Vanilla JavaScript - Suporte e Limitações
+
+## ⚠️ Importante: Este é um Design System React
+
+Este Design System é **construído com React** e depende de bibliotecas React como:
+- **React 18/19** - Core
+- **Radix UI** - Primitivos acessíveis (apenas React)
+- **React Hook Form** - Formulários
+- **class-variance-authority** - Gerenciamento de variantes
+
+---
+
+## 📝 Sobre os Snippets Vue e Vanilla
+
+Os snippets de **Vue** e **Vanilla** no Storybook são:
+
+✅ **Exemplos educacionais** - Mostram como a lógica seria implementada
+✅ **Referência de estrutura** - Padrões HTML e comportamento
+✅ **Guia de adaptação** - Base para criar sua própria versão
+
+❌ **NÃO são copy-paste** - Precisam de trabalho adicional
+❌ **NÃO têm todas as features** - Versões simplificadas
+❌ **NÃO têm Radix UI** - Precisam de alternativas
+
+---
+
+## 🎯 Opções para Vue
+
+### Opção 1: shadcn-vue (Recomendado)
+
+Existe um **port oficial do shadcn para Vue 3**:
+
+**Site:** https://www.shadcn-vue.com/
+
+```bash
+# Instalar shadcn-vue
+npm install -D @shadcn/vue
+
+# Adicionar componentes
+npx shadcn-vue@latest add button
+npx shadcn-vue@latest add card
+```
+
+**Exemplo de uso:**
+
+```vue
+<script setup lang="ts">
+import { Button } from '@/components/ui/button'
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
+</script>
+
+<template>
+  <Card>
+    <CardHeader>
+      <CardTitle>Card Title</CardTitle>
+    </CardHeader>
+    <CardContent>
+      <Button>Click me</Button>
+    </CardContent>
+  </Card>
+</template>
+```
+
+**Stack necessária:**
+- Vue 3.3+
+- TypeScript (opcional)
+- Tailwind CSS 3+
+- Radix Vue (alternativa ao Radix UI React)
+
+### Opção 2: Adaptar Manualmente do Storybook
+
+Use os snippets Vue como **referência** e adapte:
+
+**O que você precisa fazer:**
+
+1. **Substituir Radix UI por Radix Vue:**
+
+```bash
+npm install radix-vue
+```
+
+```vue
+<!-- Nosso snippet (exemplo) -->
+<script setup>
+import { Dialog } from '@/components/ui/dialog'
+</script>
+
+<!-- Adaptar para -->
+<script setup>
+import {
+  DialogRoot,
+  DialogTrigger,
+  DialogPortal,
+  DialogOverlay,
+  DialogContent
+} from 'radix-vue'
+</script>
+
+<template>
+  <DialogRoot>
+    <DialogTrigger>Open</DialogTrigger>
+    <DialogPortal>
+      <DialogOverlay />
+      <DialogContent>
+        <!-- Conteúdo -->
+      </DialogContent>
+    </DialogPortal>
+  </DialogRoot>
+</template>
+```
+
+2. **Adaptar hooks para Composition API:**
+
+```typescript
+// React
+const [open, setOpen] = useState(false)
+
+// Vue
+const open = ref(false)
+```
+
+3. **Adaptar eventos:**
+
+```typescript
+// React
+onClick={() => setOpen(true)}
+
+// Vue
+@click="open = true"
+```
+
+### Opção 3: Outras Bibliotecas Vue
+
+Alternativas completas para Vue:
+
+- **Nuxt UI** - https://ui.nuxt.com/
+- **PrimeVue** - https://primevue.org/
+- **Element Plus** - https://element-plus.org/
+- **Vuetify** - https://vuetifyjs.com/
+- **Headless UI** - https://headlessui.com/ (Vue 3)
+
+---
+
+## 🌐 Opções para Vanilla JavaScript
+
+### Opção 1: Usar os Snippets Vanilla (Limitado)
+
+Os snippets Vanilla no Storybook mostram **apenas a estrutura HTML + CSS**.
+
+**O que funciona:**
+- ✅ Layout visual
+- ✅ Classes Tailwind
+- ✅ Estrutura HTML
+- ✅ Estilos básicos
+
+**O que NÃO funciona:**
+- ❌ Interatividade (você precisa adicionar)
+- ❌ Acessibilidade completa (falta ARIA dinâmico)
+- ❌ Animações complexas
+- ❌ Gerenciamento de estado
+
+**Exemplo - Button Vanilla:**
+
+```html
+<!-- HTML puro com classes Tailwind -->
+<button class="inline-flex items-center justify-center gap-2 
+  whitespace-nowrap rounded-md text-sm font-medium 
+  bg-primary text-primary-foreground shadow-xs 
+  hover:bg-primary/90 h-9 px-4 py-2">
+  Click me
+</button>
+```
+
+**Adicionar interatividade você mesmo:**
+
+```html
+<button id="myButton" class="...">Click me</button>
+
+<script>
+document.getElementById('myButton').addEventListener('click', () => {
+  alert('Clicked!')
+})
+</script>
+```
+
+### Opção 2: Web Components (Avançado)
+
+Criar Web Components customizados baseados nos padrões do Storybook:
+
+```javascript
+class ShadcnButton extends HTMLElement {
+  constructor() {
+    super()
+    this.attachShadow({ mode: 'open' })
+  }
+
+  connectedCallback() {
+    const variant = this.getAttribute('variant') || 'default'
+    
+    this.shadowRoot.innerHTML = `
+      <style>
+        @import url('/path/to/tailwind.css');
+      </style>
+      <button class="${this.getClasses(variant)}">
+        <slot></slot>
+      </button>
+    `
+  }
+
+  getClasses(variant) {
+    const base = "inline-flex items-center justify-center..."
+    const variants = {
+      default: "bg-primary text-primary-foreground hover:bg-primary/90",
+      outline: "border border-input bg-background hover:bg-accent",
+      // ...
+    }
+    return `${base} ${variants[variant] || variants.default}`
+  }
+}
+
+customElements.define('shadcn-button', ShadcnButton)
+```
+
+Uso:
+
+```html
+<shadcn-button variant="default">Click me</shadcn-button>
+```
+
+### Opção 3: Bibliotecas JavaScript Puras
+
+Se quer UI pronta em Vanilla JS:
+
+- **Alpine.js** - https://alpinejs.dev/ (mais próximo do React)
+- **Headless UI** - https://headlessui.com/ (tem Vanilla JS)
+- **Floating UI** - https://floating-ui.com/ (tooltips, popovers)
+- **Tippy.js** - https://atomiks.github.io/tippyjs/ (tooltips)
+
+**Exemplo com Alpine.js:**
+
+```html
+<div x-data="{ open: false }">
+  <button @click="open = !open">Toggle</button>
+  
+  <div x-show="open" 
+       x-transition
+       class="border rounded-lg p-4">
+    Content
+  </div>
+</div>
+```
+
+---
+
+## 📊 Comparação de Suporte
+
+| Recurso | React (shadcn) | Vue (shadcn-vue) | Vanilla (Snippets) |
+|---------|----------------|------------------|--------------------|
+| **Instalação** | ✅ CLI | ✅ CLI | ⚠️ Manual |
+| **Componentes** | ✅ 46 componentes | ✅ ~40 componentes | ❌ Apenas HTML |
+| **Interatividade** | ✅ Completa | ✅ Completa | ❌ Você implementa |
+| **Acessibilidade** | ✅ ARIA completo | ✅ ARIA completo | ⚠️ ARIA básico |
+| **TypeScript** | ✅ Nativo | ✅ Nativo | ❌ N/A |
+| **Animações** | ✅ Framer Motion | ✅ Vue Transitions | ⚠️ CSS puro |
+| **Forms** | ✅ Hook Form + Zod | ✅ VeeValidate | ❌ Você implementa |
+| **Dark Mode** | ✅ next-themes | ✅ VueUse | ⚠️ CSS + JS manual |
+| **Complexidade** | 🟢 Fácil | 🟢 Fácil | 🔴 Difícil |
+
+---
+
+## 🎯 Recomendações
+
+### Para Vue:
+
+**Use shadcn-vue oficial:** https://www.shadcn-vue.com/
+
+```bash
+npm create vue@latest
+npm install -D tailwindcss
+npx shadcn-vue@latest init
+npx shadcn-vue@latest add button card dialog
+```
+
+### Para Vanilla JS:
+
+**Opção A - Estrutura + Alpine.js:**
+
+```html
+<!-- 1. Copie o HTML do snippet Vanilla -->
+<div x-data="{ open: false }">
+  <button @click="open = !open" class="...">
+    Toggle
+  </button>
+  <div x-show="open" class="...">
+    Content
+  </div>
+</div>
+
+<!-- 2. Adicione Alpine.js -->
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+```
+
+**Opção B - Apenas CSS (sem interatividade):**
+
+Use os snippets Vanilla apenas para **componentes estáticos**:
+- Card
+- Badge
+- Avatar (com imagem fixa)
+- Alert
+- Separator
+
+**Opção C - Framework alternativo:**
+
+Se precisa de componentes interativos em Vanilla, considere:
+- **Preact** (React leve, 3KB)
+- **Lit** (Web Components)
+- **Svelte** (compila para Vanilla JS)
+
+---
+
+## 💡 Por Que os Snippets Não São Completos?
+
+### Radix UI é React-only
+
+Componentes complexos como Dialog, Dropdown, Tooltip dependem de:
+- ✅ **Radix UI** (React) - Gerenciamento de estado, foco, ARIA
+- ❌ Não existe em Vanilla puro
+
+### Reimplementar seria complexo
+
+Para ter a **mesma qualidade** do shadcn em Vanilla, você precisaria:
+
+1. **Gerenciamento de estado** - useState, useReducer
+2. **Lifecycle** - useEffect, refs
+3. **Portals** - Renderizar fora do DOM pai
+4. **Focus management** - Trap focus, restore focus
+5. **Keyboard navigation** - Arrow keys, Tab, Escape
+6. **ARIA dinâmico** - aria-expanded, aria-controls, etc.
+7. **Animações** - Enter/exit transitions
+8. **Composição** - Slot, asChild pattern
+
+Isso são **centenas de linhas de código** por componente.
+
+---
+
+## 🚀 Decisão Rápida
+
+**Eu uso React?**
+→ ✅ Use este Design System (shadcn)
+
+**Eu uso Vue?**
+→ ✅ Use shadcn-vue (https://www.shadcn-vue.com/)
+
+**Eu uso Vanilla JS?**
+→ ⚠️ Use snippets para layout + Alpine.js para interatividade
+→ Ou considere Preact/Lit/Svelte
+
+**Eu uso Angular/Svelte/Solid?**
+→ ❌ Procure alternativas:
+- Angular: Angular Material, PrimeNG
+- Svelte: Flowbite Svelte, Skeleton UI
+- Solid: Solid UI, Hope UI
+
+---
+
+## 📚 Recursos Úteis
+
+### Para Vue:
+- **shadcn-vue:** https://www.shadcn-vue.com/
+- **Radix Vue:** https://www.radix-vue.com/
+- **Nuxt UI:** https://ui.nuxt.com/
+
+### Para Vanilla:
+- **Alpine.js:** https://alpinejs.dev/
+- **Headless UI:** https://headlessui.com/
+- **Floating UI:** https://floating-ui.com/
+
+### Alternativas Completas:
+- **Tailwind UI:** https://tailwindui.com/ (pago, multi-stack)
+- **daisyUI:** https://daisyui.com/ (Tailwind components)
+- **Flowbite:** https://flowbite.com/ (multi-stack grátis)
+
+---
+
+## ✅ Resumo
+
+| Stack | Solução Recomendada |
+|-------|---------------------|
+| **React** | ✅ Este Design System (shadcn) |
+| **Vue 3** | ✅ shadcn-vue oficial |
+| **Vanilla** | ⚠️ Snippets + Alpine.js OU Preact |
+| **Angular** | ❌ Angular Material |
+| **Svelte** | ❌ Flowbite Svelte |
+| **Solid** | ❌ Hope UI |
+
+**Conclusão:** Os snippets Vue e Vanilla são **guias educacionais**, não soluções completas. Para produção, use as ferramentas apropriadas para cada stack.

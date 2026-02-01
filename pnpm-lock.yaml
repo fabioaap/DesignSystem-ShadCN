@@ -171,15 +171,9 @@ importers:
       '@storybook/addon-docs':
         specifier: ^10.2.3
         version: 10.2.3(@types/react@19.2.10)(esbuild@0.27.2)(rollup@4.57.1)(storybook@10.2.3(@testing-library/dom@10.4.1)(prettier@3.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(vite@7.3.1(@types/node@25.1.0)(jiti@2.6.1)(lightningcss@1.30.2))
-      '@storybook/addon-measure':
-        specifier: ^9.0.8
-        version: 9.0.8
       '@storybook/addon-onboarding':
         specifier: ^10.2.3
         version: 10.2.3(storybook@10.2.3(@testing-library/dom@10.4.1)(prettier@3.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
-      '@storybook/addon-outline':
-        specifier: ^9.0.8
-        version: 9.0.8
       '@storybook/addon-storysource':
         specifier: ^8.6.14
         version: 8.6.14(storybook@10.2.3(@testing-library/dom@10.4.1)(prettier@3.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
@@ -1725,16 +1719,10 @@ packages:
     peerDependencies:
       storybook: ^10.2.3
 
-  '@storybook/addon-measure@9.0.8':
-    resolution: {integrity: sha512-+DAsl7o8Hh4cw+U29c1+IqeLJWVu3swy/wgGhZBpIyhfz22b55cTlquEjwXRV26KBkuQBZih8XhZPU689rc7Rg==}
-
   '@storybook/addon-onboarding@10.2.3':
     resolution: {integrity: sha512-slSExgyykz9lZMVpHu72L8tT3lzPTX6NXpcHYAkof4J+iu5Dl94vdBK320jri61Ox5xKh9h7CTkOK8jSUJP8mA==}
     peerDependencies:
       storybook: ^10.2.3
-
-  '@storybook/addon-outline@9.0.8':
-    resolution: {integrity: sha512-lHrm8xraDjy77zH07OsFmb7wshdwVZXw7RTub+MPo4Gql2vRxr/0cjEj9EUkeaxEyP2oQclgWBmYZvAM25vQtw==}
 
   '@storybook/addon-storysource@8.6.14':
     resolution: {integrity: sha512-/eDCNUHPdsVDF53B+Ebi9gHSNcRrA3puo1UCDio8wMN+jBMoWh6E5wSjXDsxWaOyp0Zwuq8XUx8AdgTlg/rcrw==}
@@ -5604,13 +5592,9 @@ snapshots:
       - vite
       - webpack
 
-  '@storybook/addon-measure@9.0.8': {}
-
   '@storybook/addon-onboarding@10.2.3(storybook@10.2.3(@testing-library/dom@10.4.1)(prettier@3.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))':
     dependencies:
       storybook: 10.2.3(@testing-library/dom@10.4.1)(prettier@3.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-
-  '@storybook/addon-outline@9.0.8': {}
 
   '@storybook/addon-storysource@8.6.14(storybook@10.2.3(@testing-library/dom@10.4.1)(prettier@3.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))':
     dependencies:

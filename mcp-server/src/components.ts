@@ -284,6 +284,346 @@ export const COMPONENTS: Record<string, ComponentMetadata> = {
 </div>`
       }
     ]
+  },
+
+  Checkbox: {
+    name: 'Checkbox',
+    path: 'src/components/ui/checkbox.tsx',
+    description: 'Caixa de seleção para múltiplas escolhas em formulários',
+    category: 'Forms',
+    props: [
+      {
+        name: 'checked',
+        type: 'boolean | "indeterminate"',
+        description: 'Estado do checkbox (controlado)'
+      },
+      {
+        name: 'defaultChecked',
+        type: 'boolean',
+        description: 'Estado inicial (não controlado)'
+      },
+      {
+        name: 'disabled',
+        type: 'boolean',
+        description: 'Desabilita interação'
+      },
+      {
+        name: 'onCheckedChange',
+        type: '(checked: boolean | "indeterminate") => void',
+        description: 'Callback quando estado muda'
+      }
+    ],
+    examples: [
+      {
+        title: 'Default Checkbox',
+        description: 'Checkbox básico',
+        code: '<Checkbox id="terms" />'
+      },
+      {
+        title: 'Checked Checkbox',
+        description: 'Checkbox marcado por padrão',
+        code: '<Checkbox defaultChecked disabled />'
+      }
+    ]
+  },
+
+  RadioGroup: {
+    name: 'RadioGroup',
+    path: 'src/components/ui/radio-group.tsx',
+    description: 'Grupo de opções onde apenas uma pode ser selecionada',
+    category: 'Forms',
+    subComponents: ['RadioGroup', 'RadioGroupItem'],
+    props: [
+      {
+        name: 'value',
+        type: 'string',
+        description: 'Valor selecionado (controlado)'
+      },
+      {
+        name: 'defaultValue',
+        type: 'string',
+        description: 'Valor inicial (não controlado)'
+      },
+      {
+        name: 'onValueChange',
+        type: '(value: string) => void',
+        description: 'Callback quando valor muda'
+      }
+    ],
+    examples: [
+      {
+        title: 'Basic Radio Group',
+        description: 'Grupo de radio buttons',
+        code: `<RadioGroup defaultValue="option-1">
+  <RadioGroupItem value="option-1" />
+  <RadioGroupItem value="option-2" />
+</RadioGroup>`
+      }
+    ]
+  },
+
+  Select: {
+    name: 'Select',
+    path: 'src/components/ui/select.tsx',
+    description: 'Dropdown de seleção com busca e múltiplas opções',
+    category: 'Forms',
+    subComponents: ['Select', 'SelectTrigger', 'SelectContent', 'SelectItem', 'SelectValue', 'SelectGroup', 'SelectLabel', 'SelectSeparator'],
+    props: [
+      {
+        name: 'value',
+        type: 'string',
+        description: 'Valor selecionado'
+      },
+      {
+        name: 'onValueChange',
+        type: '(value: string) => void',
+        description: 'Callback quando valor muda'
+      },
+      {
+        name: 'disabled',
+        type: 'boolean',
+        description: 'Desabilita select'
+      }
+    ],
+    examples: [
+      {
+        title: 'Basic Select',
+        description: 'Select simples',
+        code: `<Select>
+  <SelectTrigger>
+    <SelectValue placeholder="Selecione" />
+  </SelectTrigger>
+  <SelectContent>
+    <SelectItem value="1">Opção 1</SelectItem>
+    <SelectItem value="2">Opção 2</SelectItem>
+  </SelectContent>
+</Select>`
+      }
+    ]
+  },
+
+  Textarea: {
+    name: 'Textarea',
+    path: 'src/components/ui/textarea.tsx',
+    description: 'Campo de texto multilinha para entradas longas',
+    category: 'Forms',
+    props: [
+      {
+        name: 'placeholder',
+        type: 'string',
+        description: 'Texto de placeholder'
+      },
+      {
+        name: 'disabled',
+        type: 'boolean',
+        description: 'Desabilita campo'
+      },
+      {
+        name: 'rows',
+        type: 'number',
+        description: 'Número de linhas visíveis'
+      }
+    ],
+    examples: [
+      {
+        title: 'Basic Textarea',
+        description: 'Campo de texto multilinha',
+        code: '<Textarea placeholder="Digite sua mensagem..." />'
+      }
+    ]
+  },
+
+  Switch: {
+    name: 'Switch',
+    path: 'src/components/ui/switch.tsx',
+    description: 'Toggle switch para ativar/desativar opções',
+    category: 'Forms',
+    props: [
+      {
+        name: 'checked',
+        type: 'boolean',
+        description: 'Estado do switch'
+      },
+      {
+        name: 'onCheckedChange',
+        type: '(checked: boolean) => void',
+        description: 'Callback quando estado muda'
+      },
+      {
+        name: 'disabled',
+        type: 'boolean',
+        description: 'Desabilita switch'
+      }
+    ],
+    examples: [
+      {
+        title: 'Basic Switch',
+        description: 'Switch simples',
+        code: '<Switch />'
+      }
+    ]
+  },
+
+  Calendar: {
+    name: 'Calendar',
+    path: 'src/components/ui/calendar.tsx',
+    description: 'Calendário para seleção de datas',
+    category: 'Forms',
+    props: [
+      {
+        name: 'mode',
+        type: '"single" | "multiple" | "range"',
+        description: 'Modo de seleção (single, multiple, range)'
+      },
+      {
+        name: 'selected',
+        type: 'Date | Date[] | DateRange',
+        description: 'Data(s) selecionada(s)'
+      },
+      {
+        name: 'onSelect',
+        type: '(date: Date | Date[] | DateRange) => void',
+        description: 'Callback quando data é selecionada'
+      }
+    ],
+    examples: [
+      {
+        title: 'Single Date Calendar',
+        description: 'Calendário para seleção única',
+        code: `<Calendar
+  mode="single"
+  selected={date}
+  onSelect={setDate}
+/>`
+      }
+    ]
+  },
+
+  InputOTP: {
+    name: 'InputOTP',
+    path: 'src/components/ui/input-otp.tsx',
+    description: 'Input especializado para códigos OTP de verificação',
+    category: 'Forms',
+    subComponents: ['InputOTP', 'InputOTPGroup', 'InputOTPSlot', 'InputOTPSeparator'],
+    props: [
+      {
+        name: 'maxLength',
+        type: 'number',
+        description: 'Número máximo de dígitos'
+      },
+      {
+        name: 'value',
+        type: 'string',
+        description: 'Valor do OTP'
+      },
+      {
+        name: 'onChange',
+        type: '(value: string) => void',
+        description: 'Callback quando valor muda'
+      }
+    ],
+    examples: [
+      {
+        title: 'Basic OTP Input',
+        description: 'Input OTP de 6 dígitos',
+        code: `<InputOTP maxLength={6}>
+  <InputOTPGroup>
+    <InputOTPSlot index={0} />
+    <InputOTPSlot index={1} />
+    <InputOTPSlot index={2} />
+    <InputOTPSlot index={3} />
+    <InputOTPSlot index={4} />
+    <InputOTPSlot index={5} />
+  </InputOTPGroup>
+</InputOTP>`
+      }
+    ]
+  },
+
+  Slider: {
+    name: 'Slider',
+    path: 'src/components/ui/slider.tsx',
+    description: 'Controle deslizante para seleção de valores numéricos',
+    category: 'Forms',
+    props: [
+      {
+        name: 'min',
+        type: 'number',
+        description: 'Valor mínimo',
+        defaultValue: '0'
+      },
+      {
+        name: 'max',
+        type: 'number',
+        description: 'Valor máximo',
+        defaultValue: '100'
+      },
+      {
+        name: 'step',
+        type: 'number',
+        description: 'Incremento do valor'
+      },
+      {
+        name: 'value',
+        type: 'number[]',
+        description: 'Valor(es) atual(is)'
+      },
+      {
+        name: 'onValueChange',
+        type: '(value: number[]) => void',
+        description: 'Callback quando valor muda'
+      }
+    ],
+    examples: [
+      {
+        title: 'Basic Slider',
+        description: 'Slider simples',
+        code: '<Slider defaultValue={[50]} max={100} step={1} />'
+      },
+      {
+        title: 'Range Slider',
+        description: 'Slider com range',
+        code: '<Slider defaultValue={[25, 75]} max={100} step={1} />'
+      }
+    ]
+  },
+
+  Form: {
+    name: 'Form',
+    path: 'src/components/ui/form.tsx',
+    description: 'Wrapper para formulários com validação integrada',
+    category: 'Forms',
+    subComponents: ['Form', 'FormField', 'FormItem', 'FormLabel', 'FormControl', 'FormDescription', 'FormMessage'],
+    props: [
+      {
+        name: 'form',
+        type: 'UseFormReturn',
+        description: 'Instância do react-hook-form'
+      }
+    ],
+    examples: [
+      {
+        title: 'Form with Validation',
+        description: 'Formulário com validação usando zod',
+        code: `<Form {...form}>
+  <form onSubmit={form.handleSubmit(onSubmit)}>
+    <FormField
+      control={form.control}
+      name="username"
+      render={({ field }) => (
+        <FormItem>
+          <FormLabel>Username</FormLabel>
+          <FormControl>
+            <Input {...field} />
+          </FormControl>
+          <FormMessage />
+        </FormItem>
+      )}
+    />
+  </form>
+</Form>`
+      }
+    ]
   }
 };
 

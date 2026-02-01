@@ -6,6 +6,37 @@ import { Meta } from '@storybook/blocks';
 
 Este Design System usa o **@storybook/addon-designs** para integrar designs do Figma diretamente no Storybook.
 
+## ⚠️ Perguntas Frequentes
+
+### O Figma precisa estar publicado?
+**Não precisa publicação oficial**, mas:
+- **Arquivos públicos**: Funcionam imediatamente com qualquer URL
+- **Arquivos privados**: Precisam de um **Personal Access Token** do Figma
+- **Arquivos do seu time**: Qualquer pessoa do time com acesso pode visualizar
+
+### As edições no Figma refletem no Storybook?
+**✅ SIM!** A integração é em tempo real:
+- Edite o design no Figma
+- Salve as alterações (Cmd/Ctrl + S)
+- Recarregue a página do Storybook
+- O design atualizado aparece automaticamente
+
+O addon carrega o iframe do Figma, então sempre mostra a versão mais recente do arquivo.
+
+### Posso editar do Storybook para o Figma?
+**❌ NÃO.** A integração é **somente leitura (read-only)**:
+- Você visualiza o design do Figma dentro do Storybook
+- Não pode fazer alterações no design pelo Storybook
+- É apenas um embed/iframe do Figma
+- Para editar, precisa abrir o Figma diretamente
+
+**Fluxo de trabalho:**
+```
+Figma (Design) → Storybook (Referência) → Código (Implementação)
+     ↑                                              ↓
+     └────────────── Feedback ──────────────────────┘
+```
+
 ## Como Usar
 
 ### 1. Obter URL do Figma
@@ -157,27 +188,46 @@ export const Outlined: Story = {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/ABC/Button-Outlined',
-    },
-  },
-};
-```
+### Quando você precisa de Access Token?
 
-### Por Categoria
-Organize designs por sistema:
+- ✅ Arquivo público: **Não precisa** (funciona direto)
+- ✅ Arquivo do seu time: **Não precisa** (se você tem acesso)
+- ❌ Arquivo privado de outro time: **Precisa de token**
 
-```tsx
-// Design Tokens
-design: {
-  type: 'figma',
-  url: 'https://www.figma.com/file/ABC/Design-Tokens',
-}
+### Como obter e configurar:
 
-// Components
-design: {
-  type: 'figma',
-  url: 'https://www.figma.com/file/ABC/Components',
-}
+1. **Gerar token no Figma:**
+   - Vá em **Figma → Settings → Account → Personal access tokens**
+   - Clique em **Generate new token**
+   - Dê um nome (ex: "Storybook Design System")
+   - Copie o token (começa com `figd_`)
+
+2. **Adicionar ao projeto:**
+   ```bash
+   # .env.local (criar na raiz do projeto)
+   STORYBOOK_FIGMA_ACCESS_TOKEN=figd_your_token_here
+   ```
+
+3. **Usar na story:**
+   ```tsx
+   design: {
+     type: 'figma',
+     url: 'https://www.figma.com/file/...',
+     accessToken: process.env.STORYBOOK_FIGMA_ACCESS_TOKEN,
+   }
+   ```
+
+4. **Adicionar ao .gitignore:**
+   ```
+   .env.local
+   .env*.local
+   ```
+
+⚠️ **Segurança**: 
+- Nunca commite tokens no Git
+- Use variáveis de ambiente
+- Revogue tokens antigos quando não usar mais
+- Cada desenvolvedor deve ter seu próprio token
 
 // Patterns
 design: {
@@ -244,13 +294,59 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-  args: {
-    children: <p>Card content</p>,
-  },
-};
+expSincronização Design ↔ Código
 
-export const Interactive: Story = {
+### Workflow Recomendado:
+
+1. **Designer cria/atualiza no Figma**
+   - Edita componente no Figma
+   - Salva (automático no Figma)
+   - Copia URL do frame específico
+
+2. **Designer atualiza Storybook**
+   - Adiciona/atualiza URL na story
+   - Commit: "docs: update Button Figma design"
+   - Push para o repositório
+
+3. **Dev visualiza no Storybook**
+   - Abre story do componente
+   - Vê design atualizado na aba Design
+   - Compara com implementação atual
+   - Identifica mudanças necessárias
+
+4. **Dev implementa mudanças**
+   - Ajusta código do componente
+   - Valida com design do Figma lado a lado
+   - Commit: "feat: update Button with new design specs"
+
+5. **QA valida**
+   - Compara Storybook (implementação) com Figma (design)
+   - Aba Design mostra versão sempre atualizada
+   - Sem necessidade de abrir Figma separadamente
+
+### Benefícios desta integração:
+
+✅ **Centralização**: Design e código no mesmo lugar  
+✅ **Sempre atualizado**: Figma reflete em tempo real  
+✅ **Menos ferramentas**: Não precisa alternar entre Figma e Storybook  
+✅ **Referência visual**: Devs veem o design durante implementação  
+✅ **Handoff simplificado**: URL do Figma é a documentação  
+
+### Limitações:
+
+❌ Não edita Figma pelo Storybook (somente visualização)  
+❌ Precisa acesso ao Figma para ver designs privados  
+❌ Requer conexão com internet (carrega iframe do Figma)  
+❌ Performance depende do Figma (se Figma estiver lento, iframe também)  
+
+## Próximos Passos
+
+1. **Organize arquivo Figma** com todos os componentes do Design System
+2. **Vincule cada componente** usando o node-id específico de cada frame
+3. **Documente estados** (hover, active, disabled, focus, etc.)
+4. **Adicione anotações** com specs de spacing, typography, colors
+5. **Configure Dev Mode** no Figma para inspecionar propriedades CSS
+6. **Mantenha sincronizado** - atualize URLs quando redesenhar componentes
   args: {
     children: <p>Interactive card</p>,
   },

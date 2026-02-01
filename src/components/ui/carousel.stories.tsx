@@ -9,7 +9,7 @@ import {
 } from './carousel';
 
 const meta = {
-    title: 'Components/Carousel',
+    title: 'Organisms/Carousel',
     component: Carousel,
     parameters: {
         layout: 'centered',

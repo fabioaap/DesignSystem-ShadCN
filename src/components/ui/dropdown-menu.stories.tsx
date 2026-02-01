@@ -32,7 +32,7 @@ import {
 } from './dropdown-menu';
 
 const meta = {
-    title: 'Components/DropdownMenu',
+    title: 'Molecules/DropdownMenu',
     component: DropdownMenu,
     parameters: {
         layout: 'centered',

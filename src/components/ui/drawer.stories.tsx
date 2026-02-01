@@ -12,7 +12,7 @@ import {
 } from './drawer';
 
 const meta = {
-    title: 'Components/Drawer',
+    title: 'Organisms/Drawer',
     component: Drawer,
     parameters: {
         layout: 'centered',

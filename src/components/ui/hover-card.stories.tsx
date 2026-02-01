@@ -9,7 +9,7 @@ import {
 } from './hover-card';
 
 const meta = {
-    title: 'Components/HoverCard',
+    title: 'Molecules/HoverCard',
     component: HoverCard,
     parameters: {
         layout: 'centered',

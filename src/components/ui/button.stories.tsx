@@ -4,7 +4,7 @@ import { buttonSnippets } from '../../lib/code-snippets';
 import { CodePreview } from './code-preview';
 
 const meta = {
-  title: 'Components/Button',
+  title: 'Atoms/Button',
   component: Button,
   parameters: {
     layout: 'centered',

@@ -1,0 +1,324 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Introduction/Atomic Design" />
+
+# ⚛️ Atomic Design
+
+Este Design System segue a metodologia **Atomic Design** criada por Brad Frost, organizando componentes por nível de complexidade.
+
+## O que é Atomic Design?
+
+Atomic Design é uma metodologia para criar sistemas de design escaláveis e consistentes, usando uma analogia com a química:
+
+```
+Átomos → Moléculas → Organismos → Templates → Páginas
+```
+
+Cada nível aumenta em complexidade, construindo sobre os anteriores.
+
+---
+
+## Níveis da Hierarquia
+
+### 🔹 Atoms (Átomos)
+
+**Definição:** Componentes básicos e indivisíveis. São os blocos de construção fundamentais.
+
+**Características:**
+- Não podem ser quebrados em partes menores
+- Altamente reutilizáveis
+- Sem lógica de negócio complexa
+- Geralmente sem estado próprio
+
+**Exemplos no projeto:**
+- **Button** - Botão básico com variantes
+- **Input** - Campo de entrada de texto
+- **Label** - Rótulo de formulário
+- **Badge** - Marcador visual
+- **Avatar** - Imagem circular de perfil
+- **Checkbox** - Caixa de seleção
+- **Switch** - Alternador on/off
+- **Slider** - Controle deslizante
+- **Separator** - Linha divisória
+- **Skeleton** - Placeholder de carregamento
+- **Progress** - Barra de progresso
+- **Toggle** - Botão de alternância
+- **Textarea** - Campo de texto multilinha
+
+**Total: 16 Atoms** 🧬
+
+---
+
+### 🔹 Molecules (Moléculas)
+
+**Definição:** Combinações de 2+ átomos que formam componentes funcionais simples.
+
+**Características:**
+- Combinam múltiplos atoms
+- Têm propósito específico
+- Podem ter estado interno simples
+- Reutilizáveis em diferentes contextos
+
+**Exemplos no projeto:**
+- **Card** - Contêiner com header/content/footer
+- **Alert** - Notificação com ícone e texto
+- **AlertDialog** - Diálogo de confirmação
+- **Breadcrumb** - Navegação hierárquica
+- **Calendar** - Seletor de data
+- **InputOTP** - Input com campos separados
+- **HoverCard** - Card que aparece no hover
+- **Tooltip** - Dica contextual
+- **Popover** - Menu flutuante
+- **ContextMenu** - Menu de contexto (clique direito)
+- **DropdownMenu** - Menu dropdown
+- **NavigationMenu** - Menu de navegação
+- **Menubar** - Barra de menus
+- **Sonner** - Toast notification
+- **Resizable** - Painel redimensionável
+
+**Total: 15 Molecules** 🧪
+
+---
+
+### 🔹 Organisms (Organismos)
+
+**Definição:** Componentes complexos que combinam múltiplas moléculas e/ou átomos.
+
+**Características:**
+- Alta complexidade
+- Lógica de negócio
+- Gerenciam estado complexo
+- Específicos para contexto de uso
+
+**Exemplos no projeto:**
+- **Form** - Formulário completo com validação
+- **Table** - Tabela de dados com sorting/filtering
+- **Sheet** - Painel lateral deslizante
+- **Dialog** - Modal dialog
+- **Drawer** - Gaveta deslizante
+- **Collapsible** - Conteúdo recolhível
+- **Accordion** - Lista de itens expansíveis
+- **Carousel** - Carrossel de imagens
+- **Command** - Command palette (Cmd+K)
+- **Tabs** - Abas de navegação
+- **Sidebar** - Barra lateral de navegação
+- **Chart** - Gráficos de dados
+- **Pagination** - Navegação por páginas
+- **ToggleGroup** - Grupo de toggles
+
+**Total: 14 Organisms** 🦠
+
+---
+
+### 🔹 Templates
+
+**Definição:** Layouts que organizam organismos, moléculas e átomos. Sem dados reais.
+
+**Características:**
+- Define estrutura da página
+- Props para slots de conteúdo
+- Responsivo
+- Reutilizável para múltiplas páginas
+
+**Exemplos no projeto:**
+- **DashboardTemplate** - Layout de dashboard (sidebar + header + content)
+- **AuthTemplate** - Layout de autenticação (form + aside)
+- **FormTemplate** - Layout de formulário (form + help sidebar)
+
+**Total: 3 Templates** 📐
+
+---
+
+### 🔹 Pages (Páginas)
+
+**Definição:** Templates preenchidos com dados reais. Representam instâncias específicas.
+
+**Características:**
+- Usa template como base
+- Dados mockados ou reais
+- Representa tela final do usuário
+- Pronto para copy-paste em projetos
+
+**Exemplos no projeto:**
+- **LoginPage** - Página de login completa
+- **DashboardPage** - Dashboard com métricas e gráficos
+- **ProfilePage** - Página de perfil do usuário
+
+**Total: 3 Pages** 📄
+
+---
+
+## Estrutura no Storybook
+
+A navegação lateral segue esta hierarquia:
+
+```
+📁 Introduction/
+   └─ Atomic Design (este documento)
+
+📁 Atoms/ (16 componentes)
+   ├─ Button
+   ├─ Input
+   ├─ Label
+   └─ ...
+
+📁 Molecules/ (15 componentes)
+   ├─ Card
+   ├─ Alert
+   ├─ Breadcrumb
+   └─ ...
+
+📁 Organisms/ (14 componentes)
+   ├─ Form
+   ├─ Table
+   ├─ Dialog
+   └─ ...
+
+📁 Templates/ (3 templates)
+   ├─ Dashboard
+   ├─ Auth
+   └─ Form
+
+📁 Pages/ (3 páginas)
+   ├─ Login
+   ├─ Dashboard
+   └─ Profile
+```
+
+---
+
+## Benefícios desta Arquitetura
+
+### ✅ Para Desenvolvedores
+
+1. **Navegação Intuitiva** - Fácil encontrar componentes por complexidade
+2. **Reutilização Clara** - Atoms nunca dependem de outros, Molecules combinam Atoms
+3. **Testes Focados** - Testar Atoms isoladamente, depois composição
+4. **Documentação Natural** - A hierarquia já documenta as dependências
+5. **Onboarding Rápido** - Novos devs entendem a arquitetura visualmente
+
+### ✅ Para Designers
+
+1. **Consistência** - Sistema baseado em componentes fundamentais
+2. **Escalabilidade** - Fácil adicionar novos componentes
+3. **Manutenção** - Mudanças em Atoms propagam automaticamente
+4. **Prototipagem** - Templates e Pages servem como referência
+
+### ✅ Para Plataformas de IA
+
+1. **Copy-Paste Fácil** - Pages prontas para implementar
+2. **Composição Clara** - Código mostra hierarquia de dependências
+3. **Exemplos Completos** - Templates demonstram uso correto
+4. **Modular** - IA pode combinar componentes corretamente
+
+---
+
+## Regras de Composição
+
+### 📌 Atoms
+
+- ✅ Podem usar apenas HTML e CSS
+- ✅ Props simples (string, number, boolean)
+- ❌ **Nunca** importam outros componentes do design system
+- ❌ **Nunca** fazem chamadas de API
+
+### 📌 Molecules
+
+- ✅ Combinam 2 ou mais Atoms
+- ✅ Podem ter estado interno simples
+- ✅ Props podem incluir callbacks
+- ❌ **Nunca** fazem chamadas de API diretas
+- ❌ **Evitar** dependências entre Molecules
+
+### 📌 Organisms
+
+- ✅ Combinam Molecules, Atoms e outros Organisms
+- ✅ Gerenciam estado complexo
+- ✅ Podem fazer chamadas de API (via hooks)
+- ✅ Implementam lógica de negócio
+- ⚠️ Devem ser testáveis de forma isolada
+
+### 📌 Templates
+
+- ✅ Definem layouts com slots
+- ✅ Props para injetar conteúdo
+- ✅ Responsivos por padrão
+- ❌ **Nunca** contêm dados reais
+
+### 📌 Pages
+
+- ✅ Usam Templates como base
+- ✅ Dados mockados ou reais
+- ✅ Representam telas finais
+- ✅ Prontas para copy-paste
+
+---
+
+## Como Adicionar Novos Componentes
+
+### 1. Identifique o Nível
+
+Pergunte-se:
+- **É indivisível?** → Atom
+- **Combina 2-3 componentes simples?** → Molecule
+- **É complexo e específico?** → Organism
+- **Define um layout?** → Template
+- **É uma tela completa?** → Page
+
+### 2. Crie o Componente
+
+```bash
+# Atoms
+src/components/ui/my-atom.tsx
+src/components/ui/my-atom.stories.tsx
+
+# Molecules
+src/components/ui/my-molecule.tsx
+src/components/ui/my-molecule.stories.tsx
+
+# Organisms
+src/components/ui/my-organism.tsx
+src/components/ui/my-organism.stories.tsx
+
+# Templates
+src/templates/MyTemplate.tsx
+src/templates/MyTemplate.stories.tsx
+
+# Pages
+src/pages/MyPage.tsx
+src/pages/MyPage.stories.tsx
+```
+
+### 3. Configure a Story
+
+```tsx
+const meta = {
+  title: 'Atoms/MyAtom',  // ou Molecules/... Organisms/... Templates/... Pages/...
+  component: MyAtom,
+  parameters: { layout: 'centered' },  // 'fullscreen' para Templates e Pages
+  tags: ['autodocs'],
+} satisfies Meta<typeof MyAtom>;
+```
+
+---
+
+## Recursos Adicionais
+
+- [Atomic Design por Brad Frost](https://atomicdesign.bradfrost.com/)
+- [Storybook Best Practices](https://storybook.js.org/docs/writing-stories)
+- [shadcn/ui Components](https://ui.shadcn.com/)
+
+---
+
+## Estatísticas do Projeto
+
+| Categoria | Quantidade | % do Total |
+|-----------|------------|------------|
+| Atoms | 16 | 31% |
+| Molecules | 15 | 29% |
+| Organisms | 14 | 27% |
+| Templates | 3 | 6% |
+| Pages | 3 | 6% |
+| **Total** | **51** | **100%** |
+
+**51 componentes** organizados em **5 níveis** de Atomic Design! 🚀

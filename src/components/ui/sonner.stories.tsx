@@ -4,7 +4,7 @@ import { Button } from './button';
 import { Toaster } from './sonner';
 
 const meta = {
-    title: 'Components/Sonner',
+    title: 'Molecules/Sonner',
     component: Toaster,
     parameters: {
         layout: 'centered',

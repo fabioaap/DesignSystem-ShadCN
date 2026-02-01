@@ -19,7 +19,7 @@ import {
 } from './sidebar';
 
 const meta = {
-    title: 'Components/Sidebar',
+    title: 'Organisms/Sidebar',
     component: Sidebar,
     parameters: {
         layout: 'fullscreen',

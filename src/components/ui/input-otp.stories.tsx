@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { InputOTP, InputOTPGroup, InputOTPSlot } from './input-otp';
 
 const meta = {
-  title: 'Components/Forms/InputOTP',
+  title: 'Molecules/InputOTP',
   component: InputOTP,
   parameters: {
     layout: 'centered',

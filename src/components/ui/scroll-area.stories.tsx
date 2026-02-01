@@ -3,7 +3,7 @@ import { ScrollArea } from './scroll-area';
 import { Separator } from './separator';
 
 const meta = {
-    title: 'Components/ScrollArea',
+    title: 'Atoms/ScrollArea',
     component: ScrollArea,
     parameters: {
         layout: 'centered',

@@ -13,7 +13,7 @@ import {
 } from './alert-dialog';
 
 const meta = {
-    title: 'Components/AlertDialog',
+    title: 'Molecules/AlertDialog',
     component: AlertDialog,
     parameters: {
         layout: 'centered',

@@ -10,7 +10,7 @@ import {
 } from './pagination';
 
 const meta = {
-    title: 'Components/Pagination',
+    title: 'Organisms/Pagination',
     component: Pagination,
     parameters: {
         layout: 'centered',

@@ -19,7 +19,7 @@ import {
 } from './command';
 
 const meta = {
-    title: 'Components/Command',
+    title: 'Organisms/Command',
     component: Command,
     parameters: {
         layout: 'centered',

@@ -3,7 +3,7 @@ import { Bold, Italic, Underline } from 'lucide-react';
 import { Toggle } from './toggle';
 
 const meta = {
-    title: 'Components/Toggle',
+    title: 'Atoms/Toggle',
     component: Toggle,
     parameters: {
         layout: 'centered',

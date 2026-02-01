@@ -3,7 +3,7 @@ import { Bar, BarChart, XAxis, YAxis } from 'recharts';
 import { ChartContainer, ChartTooltip, ChartTooltipContent, type ChartConfig } from './chart';
 
 const meta = {
-    title: 'Components/Chart',
+    title: 'Organisms/Chart',
     component: ChartContainer,
     parameters: {
         layout: 'centered',

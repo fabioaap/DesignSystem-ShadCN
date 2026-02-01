@@ -15,7 +15,7 @@ import { Input } from './input';
 import { Button } from './button';
 
 const meta = {
-  title: 'Components/Forms/Form',
+  title: 'Organisms/Form',
   component: Form,
   parameters: {
     layout: 'centered',

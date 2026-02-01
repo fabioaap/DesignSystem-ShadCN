@@ -10,7 +10,7 @@ import {
 } from './table';
 
 const meta = {
-    title: 'Components/Table',
+    title: 'Organisms/Table',
     component: Table,
     parameters: {
         layout: 'centered',

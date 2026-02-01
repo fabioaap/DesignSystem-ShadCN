@@ -16,7 +16,7 @@ import {
 } from './context-menu';
 
 const meta = {
-    title: 'Components/ContextMenu',
+    title: 'Molecules/ContextMenu',
     component: ContextMenu,
     parameters: {
         layout: 'centered',

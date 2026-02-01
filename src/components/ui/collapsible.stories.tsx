@@ -8,7 +8,7 @@ import {
 } from './collapsible';
 
 const meta = {
-    title: 'Components/Collapsible',
+    title: 'Organisms/Collapsible',
     component: Collapsible,
     parameters: {
         layout: 'centered',

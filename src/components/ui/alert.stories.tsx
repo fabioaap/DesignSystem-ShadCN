@@ -3,7 +3,7 @@ import { AlertCircle, Terminal } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from './alert';
 
 const meta = {
-    title: 'Components/Alert',
+    title: 'Molecules/Alert',
     component: Alert,
     parameters: {
         layout: 'centered',

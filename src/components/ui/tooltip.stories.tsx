@@ -8,7 +8,7 @@ import {
 } from './tooltip';
 
 const meta = {
-    title: 'Components/Tooltip',
+    title: 'Molecules/Tooltip',
     component: Tooltip,
     parameters: {
         layout: 'centered',

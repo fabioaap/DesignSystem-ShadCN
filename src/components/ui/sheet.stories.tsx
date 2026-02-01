@@ -14,7 +14,7 @@ import {
 } from './sheet';
 
 const meta = {
-    title: 'Components/Sheet',
+    title: 'Organisms/Sheet',
     component: Sheet,
     parameters: {
         layout: 'centered',

@@ -11,7 +11,7 @@ import {
 import { cn } from '@/lib/utils';
 
 const meta = {
-    title: 'Components/NavigationMenu',
+    title: 'Molecules/NavigationMenu',
     component: NavigationMenu,
     parameters: {
         layout: 'centered',

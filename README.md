@@ -64,6 +64,10 @@ pnpm storybook
 
 Depois abra [http://localhost:6006](http://localhost:6006) no seu navegador.
 
+### Deploy do Storybook
+
+O Storybook é automaticamente implantado no GitHub Pages através de GitHub Actions. Para informações sobre configuração, troubleshooting e alternativas de deploy, consulte o **[README-DEPLOY.md](README-DEPLOY.md)**.
+
 ## 🎨 Componentes
 
 Este sistema de design inclui os seguintes componentes shadcn/ui:

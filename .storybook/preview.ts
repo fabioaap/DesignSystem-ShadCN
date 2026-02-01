@@ -10,7 +10,7 @@ import '@fontsource/fira-code';
 const preview: Preview = {
   parameters: {
     layout: 'centered',
-    
+
     // Backgrounds
     backgrounds: {
       default: 'dark',
@@ -29,22 +29,23 @@ const preview: Preview = {
         },
       ],
     },
-    
+
     // Controls
     controls: {
       matchers: {
         color: /(background|color)$/i,
         date: /Date$/i,
       },
-      expanded: true,
+      expanded: false,
       sort: 'requiredFirst',
+      hideNoControlsWarning: true,
     },
-    
+
     // Actions
-    actions: { 
-      argTypesRegex: "^on[A-Z].*" 
+    actions: {
+      argTypesRegex: "^on[A-Z].*"
     },
-    
+
     // Docs
     docs: {
       theme: darkTheme,
@@ -55,7 +56,7 @@ const preview: Preview = {
         disable: false,
       },
     },
-    
+
     // Viewport
     viewport: {
       viewports: {
@@ -73,7 +74,7 @@ const preview: Preview = {
         },
       },
     },
-    
+
     // Options
     options: {
       storySort: {
@@ -94,8 +95,14 @@ const preview: Preview = {
         ],
       },
     },
+
+    // Performance: reduzir ações e logs
+    previewTabs: {
+      'storybook/docs/panel': { index: -1 },
+      canvas: { title: 'Canvas' },
+    },
   },
-  
+
   // Theme toggle
   decorators: [
     withThemeByClassName({
@@ -106,7 +113,7 @@ const preview: Preview = {
       defaultTheme: 'dark',
     }),
   ],
-  
+
   // Global types
   globalTypes: {
     theme: {

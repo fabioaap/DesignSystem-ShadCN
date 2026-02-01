@@ -4,33 +4,33 @@
  */
 
 export interface CodeSnippet {
-  react: string;
-  vue: string;
-  vanilla: string;
+    react: string;
+    vue: string;
+    vanilla: string;
 }
 
 export interface ComponentSnippets {
-  [key: string]: CodeSnippet;
+    [key: string]: CodeSnippet;
 }
 
 /**
  * Button component code snippets
  */
 export const buttonSnippets: ComponentSnippets = {
-  default: {
-    react: `import { Button } from "@/components/ui/button"
+    default: {
+        react: `import { Button } from "@/components/ui/button"
 
 export function ButtonDemo() {
   return <Button>Click me</Button>
 }`,
-    vue: `<template>
+        vue: `<template>
   <Button>Click me</Button>
 </template>
 
 <script setup>
 import { Button } from '@/components/ui/button'
 </script>`,
-    vanilla: `<!-- HTML -->
+        vanilla: `<!-- HTML -->
 <button class="inline-flex items-center justify-center gap-2 
   whitespace-nowrap rounded-md text-sm font-medium 
   bg-primary text-primary-foreground shadow-xs 
@@ -48,110 +48,110 @@ import { Button } from '@/components/ui/button'
     font-weight: 500;
   }
 </style>`,
-  },
-  secondary: {
-    react: `import { Button } from "@/components/ui/button"
+    },
+    secondary: {
+        react: `import { Button } from "@/components/ui/button"
 
 export function ButtonSecondary() {
   return <Button variant="secondary">Secondary</Button>
 }`,
-    vue: `<template>
+        vue: `<template>
   <Button variant="secondary">Secondary</Button>
 </template>
 
 <script setup>
 import { Button } from '@/components/ui/button'
 </script>`,
-    vanilla: `<button class="inline-flex items-center justify-center gap-2 
+        vanilla: `<button class="inline-flex items-center justify-center gap-2 
   whitespace-nowrap rounded-md text-sm font-medium 
   bg-secondary text-secondary-foreground shadow-xs 
   hover:bg-secondary/80 h-9 px-4 py-2">
   Secondary
 </button>`,
-  },
-  destructive: {
-    react: `import { Button } from "@/components/ui/button"
+    },
+    destructive: {
+        react: `import { Button } from "@/components/ui/button"
 
 export function ButtonDestructive() {
   return <Button variant="destructive">Delete</Button>
 }`,
-    vue: `<template>
+        vue: `<template>
   <Button variant="destructive">Delete</Button>
 </template>
 
 <script setup>
 import { Button } from '@/components/ui/button'
 </script>`,
-    vanilla: `<button class="inline-flex items-center justify-center gap-2 
+        vanilla: `<button class="inline-flex items-center justify-center gap-2 
   whitespace-nowrap rounded-md text-sm font-medium 
   bg-destructive text-white shadow-xs 
   hover:bg-destructive/90 h-9 px-4 py-2">
   Delete
 </button>`,
-  },
-  outline: {
-    react: `import { Button } from "@/components/ui/button"
+    },
+    outline: {
+        react: `import { Button } from "@/components/ui/button"
 
 export function ButtonOutline() {
   return <Button variant="outline">Outline</Button>
 }`,
-    vue: `<template>
+        vue: `<template>
   <Button variant="outline">Outline</Button>
 </template>
 
 <script setup>
 import { Button } from '@/components/ui/button'
 </script>`,
-    vanilla: `<button class="inline-flex items-center justify-center gap-2 
+        vanilla: `<button class="inline-flex items-center justify-center gap-2 
   whitespace-nowrap rounded-md text-sm font-medium 
   border border-input bg-background shadow-xs 
   hover:bg-accent hover:text-accent-foreground 
   h-9 px-4 py-2">
   Outline
 </button>`,
-  },
-  ghost: {
-    react: `import { Button } from "@/components/ui/button"
+    },
+    ghost: {
+        react: `import { Button } from "@/components/ui/button"
 
 export function ButtonGhost() {
   return <Button variant="ghost">Ghost</Button>
 }`,
-    vue: `<template>
+        vue: `<template>
   <Button variant="ghost">Ghost</Button>
 </template>
 
 <script setup>
 import { Button } from '@/components/ui/button'
 </script>`,
-    vanilla: `<button class="inline-flex items-center justify-center gap-2 
+        vanilla: `<button class="inline-flex items-center justify-center gap-2 
   whitespace-nowrap rounded-md text-sm font-medium 
   hover:bg-accent hover:text-accent-foreground 
   h-9 px-4 py-2">
   Ghost
 </button>`,
-  },
-  link: {
-    react: `import { Button } from "@/components/ui/button"
+    },
+    link: {
+        react: `import { Button } from "@/components/ui/button"
 
 export function ButtonLink() {
   return <Button variant="link">Link</Button>
 }`,
-    vue: `<template>
+        vue: `<template>
   <Button variant="link">Link</Button>
 </template>
 
 <script setup>
 import { Button } from '@/components/ui/button'
 </script>`,
-    vanilla: `<button class="inline-flex items-center justify-center gap-2 
+        vanilla: `<button class="inline-flex items-center justify-center gap-2 
   whitespace-nowrap text-sm font-medium 
   text-primary underline-offset-4 hover:underline 
   h-9 px-4 py-2">
   Link
 </button>`,
-  },
-  withIcon: {
-    react: `import { Button } from "@/components/ui/button"
+    },
+    withIcon: {
+        react: `import { Button } from "@/components/ui/button"
 import { Mail } from "lucide-react"
 
 export function ButtonWithIcon() {
@@ -161,7 +161,7 @@ export function ButtonWithIcon() {
     </Button>
   )
 }`,
-    vue: `<template>
+        vue: `<template>
   <Button>
     <Mail class="mr-2 h-4 w-4" /> Login with Email
   </Button>
@@ -171,7 +171,7 @@ export function ButtonWithIcon() {
 import { Button } from '@/components/ui/button'
 import { Mail } from 'lucide-vue-next'
 </script>`,
-    vanilla: `<button class="inline-flex items-center justify-center gap-2 
+        vanilla: `<button class="inline-flex items-center justify-center gap-2 
   whitespace-nowrap rounded-md text-sm font-medium 
   bg-primary text-primary-foreground shadow-xs 
   hover:bg-primary/90 h-9 px-4 py-2">
@@ -183,9 +183,9 @@ import { Mail } from 'lucide-vue-next'
   </svg>
   Login with Email
 </button>`,
-  },
-  loading: {
-    react: `import { Button } from "@/components/ui/button"
+    },
+    loading: {
+        react: `import { Button } from "@/components/ui/button"
 import { Loader2 } from "lucide-react"
 
 export function ButtonLoading() {
@@ -196,7 +196,7 @@ export function ButtonLoading() {
     </Button>
   )
 }`,
-    vue: `<template>
+        vue: `<template>
   <Button disabled>
     <Loader2 class="mr-2 h-4 w-4 animate-spin" />
     Please wait
@@ -207,7 +207,7 @@ export function ButtonLoading() {
 import { Button } from '@/components/ui/button'
 import { Loader2 } from 'lucide-vue-next'
 </script>`,
-    vanilla: `<button disabled class="inline-flex items-center justify-center gap-2 
+        vanilla: `<button disabled class="inline-flex items-center justify-center gap-2 
   whitespace-nowrap rounded-md text-sm font-medium 
   bg-primary text-primary-foreground shadow-xs 
   opacity-50 cursor-not-allowed h-9 px-4 py-2">
@@ -220,27 +220,27 @@ import { Loader2 } from 'lucide-vue-next'
   </svg>
   Please wait
 </button>`,
-  },
+    },
 };
 
 /**
  * Input component code snippets
  */
 export const inputSnippets: ComponentSnippets = {
-  default: {
-    react: `import { Input } from "@/components/ui/input"
+    default: {
+        react: `import { Input } from "@/components/ui/input"
 
 export function InputDemo() {
   return <Input type="email" placeholder="Email" />
 }`,
-    vue: `<template>
+        vue: `<template>
   <Input type="email" placeholder="Email" />
 </template>
 
 <script setup>
 import { Input } from '@/components/ui/input'
 </script>`,
-    vanilla: `<input 
+        vanilla: `<input 
   type="email" 
   placeholder="Email"
   class="flex h-9 w-full rounded-md border border-input 
@@ -251,9 +251,9 @@ import { Input } from '@/components/ui/input'
     focus-visible:ring-ring disabled:cursor-not-allowed 
     disabled:opacity-50 md:text-sm"
 />`,
-  },
-  withLabel: {
-    react: `import { Input } from "@/components/ui/input"
+    },
+    withLabel: {
+        react: `import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
 export function InputWithLabel() {
@@ -264,7 +264,7 @@ export function InputWithLabel() {
     </div>
   )
 }`,
-    vue: `<template>
+        vue: `<template>
   <div class="grid w-full max-w-sm items-center gap-1.5">
     <Label for="email">Email</Label>
     <Input type="email" id="email" placeholder="Email" />
@@ -275,7 +275,7 @@ export function InputWithLabel() {
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 </script>`,
-    vanilla: `<div class="grid w-full max-w-sm items-center gap-1.5">
+        vanilla: `<div class="grid w-full max-w-sm items-center gap-1.5">
   <label for="email" class="text-sm font-medium leading-none 
     peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
     Email
@@ -291,21 +291,21 @@ import { Label } from '@/components/ui/label'
       focus-visible:ring-ring md:text-sm"
   />
 </div>`,
-  },
-  disabled: {
-    react: `import { Input } from "@/components/ui/input"
+    },
+    disabled: {
+        react: `import { Input } from "@/components/ui/input"
 
 export function InputDisabled() {
   return <Input disabled type="email" placeholder="Email" />
 }`,
-    vue: `<template>
+        vue: `<template>
   <Input disabled type="email" placeholder="Email" />
 </template>
 
 <script setup>
 import { Input } from '@/components/ui/input'
 </script>`,
-    vanilla: `<input 
+        vanilla: `<input 
   type="email" 
   placeholder="Email"
   disabled
@@ -314,15 +314,15 @@ import { Input } from '@/components/ui/input'
     placeholder:text-muted-foreground 
     disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
 />`,
-  },
+    },
 };
 
 /**
  * Card component code snippets
  */
 export const cardSnippets: ComponentSnippets = {
-  default: {
-    react: `import {
+    default: {
+        react: `import {
   Card,
   CardContent,
   CardDescription,
@@ -348,7 +348,7 @@ export function CardDemo() {
     </Card>
   )
 }`,
-    vue: `<template>
+        vue: `<template>
   <Card class="w-[350px]">
     <CardHeader>
       <CardTitle>Create project</CardTitle>
@@ -367,7 +367,7 @@ export function CardDemo() {
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 </script>`,
-    vanilla: `<div class="rounded-xl border bg-card text-card-foreground shadow w-[350px]">
+        vanilla: `<div class="rounded-xl border bg-card text-card-foreground shadow w-[350px]">
   <div class="flex flex-col space-y-1.5 p-6">
     <h3 class="font-semibold leading-none tracking-tight">Create project</h3>
     <p class="text-sm text-muted-foreground">Deploy your new project in one-click.</p>
@@ -384,15 +384,15 @@ import { Button } from '@/components/ui/button'
     </button>
   </div>
 </div>`,
-  },
+    },
 };
 
 /**
  * Dialog component code snippets
  */
 export const dialogSnippets: ComponentSnippets = {
-  default: {
-    react: `import {
+    default: {
+        react: `import {
   Dialog,
   DialogContent,
   DialogDescription,
@@ -419,7 +419,7 @@ export function DialogDemo() {
     </Dialog>
   )
 }`,
-    vue: `<template>
+        vue: `<template>
   <Dialog>
     <DialogTrigger as-child>
       <Button variant="outline">Open Dialog</Button>
@@ -439,7 +439,7 @@ export function DialogDemo() {
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
 </script>`,
-    vanilla: `<!-- Trigger -->
+        vanilla: `<!-- Trigger -->
 <button onclick="openDialog()" class="inline-flex items-center 
   justify-center gap-2 rounded-md border border-input 
   bg-background shadow-xs hover:bg-accent 
@@ -469,15 +469,15 @@ function closeDialog() {
   document.getElementById('dialog').classList.add('hidden');
 }
 </script>`,
-  },
+    },
 };
 
 /**
  * Tabs component code snippets
  */
 export const tabsSnippets: ComponentSnippets = {
-  default: {
-    react: `import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+    default: {
+        react: `import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 export function TabsDemo() {
   return (
@@ -491,7 +491,7 @@ export function TabsDemo() {
     </Tabs>
   )
 }`,
-    vue: `<template>
+        vue: `<template>
   <Tabs default-value="account" class="w-[400px]">
     <TabsList>
       <TabsTrigger value="account">Account</TabsTrigger>
@@ -505,7 +505,7 @@ export function TabsDemo() {
 <script setup>
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 </script>`,
-    vanilla: `<div class="w-[400px]">
+        vanilla: `<div class="w-[400px]">
   <!-- Tab List -->
   <div class="inline-flex h-9 items-center justify-center rounded-lg 
     bg-muted p-1 text-muted-foreground" role="tablist">
@@ -539,26 +539,26 @@ function switchTab(tab) {
   document.getElementById(\`tab-\${tab}\`).classList.remove('hidden');
 }
 </script>`,
-  },
+    },
 };
 
 /**
  * Get all snippets for a component
  */
 export function getComponentSnippets(component: string): ComponentSnippets | undefined {
-  const snippetsMap: Record<string, ComponentSnippets> = {
-    button: buttonSnippets,
-    input: inputSnippets,
-    card: cardSnippets,
-    dialog: dialogSnippets,
-    tabs: tabsSnippets,
-  };
-  return snippetsMap[component.toLowerCase()];
+    const snippetsMap: Record<string, ComponentSnippets> = {
+        button: buttonSnippets,
+        input: inputSnippets,
+        card: cardSnippets,
+        dialog: dialogSnippets,
+        tabs: tabsSnippets,
+    };
+    return snippetsMap[component.toLowerCase()];
 }
 
 /**
  * Format code for display
  */
 export function formatCode(code: string): string {
-  return code.trim();
+    return code.trim();
 }

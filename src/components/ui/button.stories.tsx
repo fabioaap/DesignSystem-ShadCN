@@ -52,7 +52,7 @@ export const CodeExamples: Story = {
       <div className="flex justify-center p-6 border rounded-lg bg-background">
         <Button {...args}>{args.children}</Button>
       </div>
-      <CodePreview 
+      <CodePreview
         react={buttonSnippets.default.react}
         vue={buttonSnippets.default.vue}
         vanilla={buttonSnippets.default.vanilla}

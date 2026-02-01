@@ -37,3 +37,6 @@ debug-storybook.log
 
 # storybook
 storybook-static
+
+# typescript
+*.tsbuildinfo

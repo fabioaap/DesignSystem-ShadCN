@@ -1,0 +1,35 @@
+import type { Meta, StoryObj } from '@storybook/react';
+import { Slider } from './slider';
+
+const meta = {
+  title: 'Components/Forms/Slider',
+  component: Slider,
+  parameters: {
+    layout: 'centered',
+    docs: {
+      description: {
+        component: 'Controle deslizante para seleção de valores numéricos.',
+      },
+    },
+  },
+  tags: ['autodocs'],
+} satisfies Meta<typeof Slider>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Default: Story = {
+  render: () => (
+    <div className="w-[300px]">
+      <Slider defaultValue={[50]} max={100} step={1} />
+    </div>
+  ),
+};
+
+export const Range: Story = {
+  render: () => (
+    <div className="w-[300px]">
+      <Slider defaultValue={[25, 75]} max={100} step={1} />
+    </div>
+  ),
+};

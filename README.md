@@ -59,28 +59,28 @@ This design system includes the following shadcn/ui components:
 
 ## 📚 Storybook
 
-Acesse nosso catálogo de componentes online:
+Access our component catalog online:
 
-**[Ver Storybook →](https://fabioaap.github.io/DesignSystem-ShadCN/)**
+**[View Storybook →](https://fabioaap.github.io/DesignSystem-ShadCN/)**
 
-### Desenvolvimento Local
+### Local Development
 
 ```bash
-# Executar Storybook localmente
+# Run Storybook locally
 pnpm storybook
 
-# Build do Storybook
+# Build Storybook
 pnpm build-storybook
 ```
 
-Depois abra [http://localhost:6006](http://localhost:6006) no seu navegador.
+Then open [http://localhost:6006](http://localhost:6006) in your browser.
 
-### Componentes Disponíveis
+### Available Components
 
-- **Button** - Botões com variantes (default, destructive, outline, secondary, ghost, link)
-- **Card** - Cards para conteúdo estruturado
-- **Input** - Campos de entrada de texto
-- **Label** - Rótulos para formulários
+- **Button** - Buttons with variants (default, destructive, outline, secondary, ghost, link)
+- **Card** - Cards for structured content
+- **Input** - Text input fields
+- **Label** - Labels for forms
 
 ## Project Structure
 

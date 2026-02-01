@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "designsystem-shadcn": {
+      "command": "node",
+      "args": [
+        "/absolute/path/to/DesignSystem-ShadCN/mcp-server/dist/index.js"
+      ]
+    }
+  }
+}

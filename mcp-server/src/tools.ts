@@ -12,7 +12,8 @@ import {
   GetComponentInfoRequest,
   GetComponentCodeRequest,
   GenerateUsageExampleRequest,
-  SearchComponentsRequest
+  SearchComponentsRequest,
+  ComponentMetadata
 } from './types.js';
 
 /**
@@ -239,7 +240,7 @@ export function handleSearchComponents(args: SearchComponentsRequest): string {
 /**
  * Calculate relevance score for search results
  */
-function calculateRelevance(query: string, component: any): number {
+function calculateRelevance(query: string, component: ComponentMetadata): number {
   const lowerQuery = query.toLowerCase();
   let score = 0;
   

@@ -1,0 +1,16 @@
+name: Check Permissions
+
+on:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check GitHub Pages
+        run: |
+          echo "Checking permissions..."
+          echo "GITHUB_TOKEN permissions:"
+          echo "  contents: ${{ github.token }}"
+          echo "Repository: ${{ github.repository }}"
+          echo "Actor: ${{ github.actor }}"

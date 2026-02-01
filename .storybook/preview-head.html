@@ -25,8 +25,12 @@
     background: #52525b;
   }
   
-  /* Animações suaves */
-  * {
+  /* Animações suaves - aplicadas apenas a elementos relevantes */
+  .sidebar-container,
+  .sb-show-main,
+  a,
+  button,
+  [role="button"] {
     transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
   }
   

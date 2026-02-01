@@ -3,64 +3,64 @@ import { Bold, Italic, Underline } from 'lucide-react';
 import { Toggle } from './toggle';
 
 const meta = {
-  title: 'Components/Toggle',
-  component: Toggle,
-  parameters: {
-    layout: 'centered',
-  },
-  tags: ['autodocs'],
-  argTypes: {
-    variant: {
-      control: 'select',
-      options: ['default', 'outline'],
+    title: 'Components/Toggle',
+    component: Toggle,
+    parameters: {
+        layout: 'centered',
     },
-    size: {
-      control: 'select',
-      options: ['default', 'sm', 'lg'],
+    tags: ['autodocs'],
+    argTypes: {
+        variant: {
+            control: 'select',
+            options: ['default', 'outline'],
+        },
+        size: {
+            control: 'select',
+            options: ['default', 'sm', 'lg'],
+        },
     },
-  },
 } satisfies Meta<typeof Toggle>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  render: () => (
-    <Toggle aria-label="Toggle bold">
-      <Bold className="h-4 w-4" />
-    </Toggle>
-  ),
+    render: () => (
+        <Toggle aria-label="Toggle bold">
+            <Bold className="h-4 w-4" />
+        </Toggle>
+    ),
 };
 
 export const Outline: Story = {
-  render: () => (
-    <Toggle variant="outline" aria-label="Toggle italic">
-      <Italic className="h-4 w-4" />
-    </Toggle>
-  ),
+    render: () => (
+        <Toggle variant="outline" aria-label="Toggle italic">
+            <Italic className="h-4 w-4" />
+        </Toggle>
+    ),
 };
 
 export const WithText: Story = {
-  render: () => (
-    <Toggle aria-label="Toggle underline">
-      <Underline className="h-4 w-4" />
-      Underline
-    </Toggle>
-  ),
+    render: () => (
+        <Toggle aria-label="Toggle underline">
+            <Underline className="h-4 w-4" />
+            Underline
+        </Toggle>
+    ),
 };
 
 export const Sizes: Story = {
-  render: () => (
-    <div className="flex items-center gap-2">
-      <Toggle size="sm" aria-label="Toggle small">
-        <Bold className="h-4 w-4" />
-      </Toggle>
-      <Toggle size="default" aria-label="Toggle default">
-        <Bold className="h-4 w-4" />
-      </Toggle>
-      <Toggle size="lg" aria-label="Toggle large">
-        <Bold className="h-4 w-4" />
-      </Toggle>
-    </div>
-  ),
+    render: () => (
+        <div className="flex items-center gap-2">
+            <Toggle size="sm" aria-label="Toggle small">
+                <Bold className="h-4 w-4" />
+            </Toggle>
+            <Toggle size="default" aria-label="Toggle default">
+                <Bold className="h-4 w-4" />
+            </Toggle>
+            <Toggle size="lg" aria-label="Toggle large">
+                <Bold className="h-4 w-4" />
+            </Toggle>
+        </div>
+    ),
 };

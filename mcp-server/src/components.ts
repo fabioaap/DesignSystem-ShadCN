@@ -98,7 +98,7 @@ export const COMPONENTS: Record<string, ComponentMetadata> = {
       }
     ]
   },
-  
+
   Card: {
     name: 'Card',
     path: 'src/components/ui/card.tsx',
@@ -172,7 +172,7 @@ export const COMPONENTS: Record<string, ComponentMetadata> = {
       }
     ]
   },
-  
+
   Input: {
     name: 'Input',
     path: 'src/components/ui/input.tsx',
@@ -242,7 +242,7 @@ export const COMPONENTS: Record<string, ComponentMetadata> = {
       }
     ]
   },
-  
+
   Label: {
     name: 'Label',
     path: 'src/components/ui/label.tsx',
@@ -627,7 +627,7 @@ export const COMPONENTS: Record<string, ComponentMetadata> = {
   },
 
   // === NEW COMPONENTS ===
-  
+
   Accordion: {
     name: 'Accordion',
     path: 'src/components/ui/accordion.tsx',
@@ -1068,7 +1068,7 @@ export function getComponentCode(name: string): string {
   if (!component) {
     throw new Error(`Component "${name}" not found`);
   }
-  
+
   const filePath = join(ROOT_DIR, component.path);
   try {
     return readFileSync(filePath, 'utf-8');
@@ -1083,40 +1083,40 @@ export function getComponentCode(name: string): string {
 export function searchComponents(query: string): ComponentMetadata[] {
   const lowerQuery = query.toLowerCase();
   const results: ComponentMetadata[] = [];
-  
+
   for (const component of Object.values(COMPONENTS)) {
     // Search in name
     if (component.name.toLowerCase().includes(lowerQuery)) {
       results.push(component);
       continue;
     }
-    
+
     // Search in description
     if (component.description.toLowerCase().includes(lowerQuery)) {
       results.push(component);
       continue;
     }
-    
+
     // Search in category
     if (component.category?.toLowerCase().includes(lowerQuery)) {
       results.push(component);
       continue;
     }
-    
+
     // Search in variants
     if (component.variants) {
       const variantMatch = Object.entries(component.variants).some(([key, values]) => {
-        return key.toLowerCase().includes(lowerQuery) || 
-               values.some(v => v.toLowerCase().includes(lowerQuery));
+        return key.toLowerCase().includes(lowerQuery) ||
+          values.some(v => v.toLowerCase().includes(lowerQuery));
       });
       if (variantMatch) {
         results.push(component);
         continue;
       }
     }
-    
+
     // Search in props
-    const propsMatch = component.props.some(prop => 
+    const propsMatch = component.props.some(prop =>
       prop.name.toLowerCase().includes(lowerQuery) ||
       prop.description.toLowerCase().includes(lowerQuery)
     );
@@ -1125,6 +1125,6 @@ export function searchComponents(query: string): ComponentMetadata[] {
       continue;
     }
   }
-  
+
   return results;
 }

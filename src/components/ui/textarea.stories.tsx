@@ -6,10 +6,6 @@ const meta = {
   component: Textarea,
   parameters: {
     layout: 'centered',
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/design/w3ELUKlZdgcvxepmqDsDX3/-shadcn-ui-components-with-variables---Tailwind-classes---Updated-November-2025--Community-?node-id=73-1984',
-    },
     docs: {
       description: {
         component: 'Campo de texto multilinha para entradas longas.',

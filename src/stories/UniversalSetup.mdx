@@ -1,0 +1,459 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Introduction/Universal Setup" />
+
+# 🌍 Setup Universal - Qualquer Plataforma
+
+Este Design System funciona em **qualquer plataforma, ferramenta ou ambiente** que suporte:
+- ✅ React (versão 18+)
+- ✅ TypeScript (opcional mas recomendado)
+- ✅ Tailwind CSS (versão 3+)
+
+---
+
+## ✨ Funciona Em
+
+### Plataformas de Desenvolvimento
+- Create React App
+- Vite
+- Parcel
+- Webpack
+- Turbopack
+- esbuild
+
+### Frameworks
+- **Next.js** (App Router ou Pages Router)
+- **Remix**
+- **Gatsby**
+- **Astro** (com React)
+- **Qwik**
+- **Docusaurus**
+
+### IDEs e Editores
+- VSCode
+- WebStorm
+- Zed
+- Neovim (com LSP)
+- Emacs
+- Sublime Text
+
+### Ambientes Cloud
+- GitHub Codespaces
+- GitPod
+- AWS Cloud9
+- Google Cloud Shell
+- Azure DevSpaces
+
+### Builders Visuais
+- Framer
+- Webflow (com código customizado)
+- Plasmic
+- Builder.io
+
+### Plataformas Mobile
+- React Native Web
+- Expo (com Web)
+- Tamagui
+
+---
+
+## 🚀 Setup em 3 Passos (Universal)
+
+### Passo 1: Verificar Requisitos
+
+```bash
+# Seu projeto deve ter:
+node --version    # v18+ recomendado
+npm --version     # ou pnpm, yarn, bun
+```
+
+```json
+// package.json deve incluir:
+{
+  "dependencies": {
+    "react": "^18.0.0",     // ou 19
+    "react-dom": "^18.0.0"   // ou 19
+  }
+}
+```
+
+### Passo 2: Instalar Tailwind CSS
+
+Se ainda não tem Tailwind:
+
+```bash
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+```
+
+Configure `tailwind.config.js`:
+
+```javascript
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  darkMode: ["class"],
+  content: [
+    './pages/**/*.{ts,tsx,js,jsx}',
+    './components/**/*.{ts,tsx,js,jsx}',
+    './app/**/*.{ts,tsx,js,jsx}',
+    './src/**/*.{ts,tsx,js,jsx}',
+  ],
+  theme: {
+    extend: {
+      colors: {
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
+    },
+  },
+  plugins: [require("tailwindcss-animate")],
+}
+```
+
+Adicione ao seu CSS principal (ex: `globals.css` ou `index.css`):
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+}
+```
+
+### Passo 3A: Usar shadcn CLI (Recomendado)
+
+```bash
+# Inicializar shadcn (uma vez apenas)
+npx shadcn@latest init
+
+# Responda as perguntas:
+# ✓ TypeScript: Yes
+# ✓ Style: Default
+# ✓ Color: Zinc
+# ✓ CSS variables: Yes
+
+# Instalar componentes
+npx shadcn@latest add button
+npx shadcn@latest add card
+npx shadcn@latest add input
+# ... etc
+```
+
+### Passo 3B: Copiar Manualmente (Alternativa)
+
+1. Acesse https://fabioaap.github.io/DesignSystem-ShadCN/
+2. Navegue até o componente desejado
+3. Vá na aba "React" da story "Code Examples"
+4. Copie o código completo
+5. Cole em `components/ui/[component-name].tsx`
+
+Não esqueça de criar o utilitário `lib/utils.ts`:
+
+```typescript
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+```
+
+E instalar dependências:
+
+```bash
+npm install clsx tailwind-merge class-variance-authority
+npm install @radix-ui/react-slot
+```
+
+---
+
+## 🎯 Exemplos por Ambiente
+
+### Create React App (CRA)
+
+```bash
+npx create-react-app my-app --template typescript
+cd my-app
+npm install -D tailwindcss
+npx tailwindcss init
+npm install @radix-ui/react-slot class-variance-authority clsx tailwind-merge
+npx shadcn@latest init
+```
+
+### Vite
+
+```bash
+npm create vite@latest my-app -- --template react-ts
+cd my-app
+npm install
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+npx shadcn@latest init
+```
+
+### Remix
+
+```bash
+npx create-remix@latest
+cd my-remix-app
+npm install -D tailwindcss
+npx tailwindcss init
+npx shadcn@latest init
+```
+
+### Astro (com React)
+
+```bash
+npm create astro@latest
+# Escolha "Use blog template" ou "Empty"
+npm install react react-dom @astrojs/react
+npx astro add react
+npx astro add tailwind
+npx shadcn@latest init
+```
+
+### Next.js (já documentado)
+
+```bash
+npx create-next-app@latest
+npx shadcn@latest init
+```
+
+### Gatsby
+
+```bash
+npx gatsby new my-gatsby-site
+cd my-gatsby-site
+npm install -D tailwindcss
+npx tailwindcss init
+npx shadcn@latest init
+```
+
+---
+
+## 🔧 Ambientes Sem npm/Terminal
+
+Se você está em um ambiente onde **não pode rodar comandos** (ex: alguns builders visuais), use este método:
+
+### 1. Copiar Código Manualmente
+
+Estrutura de pastas necessária:
+
+```
+src/
+├── lib/
+│   └── utils.ts          # Função cn()
+└── components/
+    └── ui/
+        ├── button.tsx
+        ├── card.tsx
+        └── ... outros componentes
+```
+
+### 2. Instalar via CDN (Não Recomendado, mas funciona)
+
+Se não puder usar npm, adicione ao seu HTML:
+
+```html
+<!-- Tailwind CSS via CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        colors: {
+          border: "hsl(var(--border))",
+          // ... resto da config
+        }
+      }
+    }
+  }
+</script>
+```
+
+Depois copie os componentes do Storybook e cole diretamente no seu código.
+
+### 3. Bundler Online
+
+Use um bundler online como:
+- **CodeSandbox** - https://codesandbox.io/
+- **StackBlitz** - https://stackblitz.com/
+- **JSFiddle** - https://jsfiddle.net/
+
+Todos suportam npm e você pode usar shadcn CLI normalmente.
+
+---
+
+## 📱 React Native (Limitado)
+
+Para React Native, use alternativas como:
+
+- **NativeWind** - Tailwind CSS para React Native
+- **Tamagui** - UI kit alternativo
+- **React Native Paper** - Material Design
+
+Este Design System é focado em **React Web**, mas os padrões podem ser adaptados.
+
+---
+
+## 🎨 Plataformas Visuais
+
+### Framer
+
+1. Importe componentes React customizados
+2. Cole o código dos componentes do Storybook
+3. Configure Tailwind no projeto Framer
+
+### Builder.io
+
+1. Crie componentes customizados
+2. Registre componentes shadcn como custom components
+3. Use no editor visual
+
+### Plasmic
+
+1. Code components
+2. Importe componentes do shadcn
+3. Configure props no editor
+
+---
+
+## ✅ Checklist de Compatibilidade
+
+Seu ambiente é compatível se tiver:
+
+- ✅ Suporte a React 18+
+- ✅ Suporte a JSX/TSX
+- ✅ Suporte a CSS Modules ou Tailwind
+- ✅ Bundler (Webpack, Vite, etc)
+- ✅ npm/pnpm/yarn/bun
+
+**Não funciona com:**
+
+- ❌ jQuery
+- ❌ Angular
+- ❌ Vue 2 (funciona com Vue 3 + adaptações)
+- ❌ Svelte (precisa adaptação)
+- ❌ Vanilla JS puro (veja aba "Vanilla" no Storybook)
+
+---
+
+## 🆘 Problemas Comuns
+
+### "Module not found: @radix-ui/react-slot"
+
+```bash
+npm install @radix-ui/react-slot
+```
+
+### "cn is not defined"
+
+Crie `lib/utils.ts`:
+
+```typescript
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+```
+
+### "Tailwind classes not working"
+
+Verifique se:
+1. Tailwind está configurado corretamente
+2. `@tailwind` directives estão no CSS
+3. Content paths incluem seus arquivos de componentes
+4. CSS está importado no entry point
+
+### "Dark mode not working"
+
+Adicione `darkMode: ["class"]` no `tailwind.config.js` e toggle a classe `dark` no elemento root.
+
+---
+
+## 📚 Recursos Adicionais
+
+- **Documentação Completa:** https://ui.shadcn.com
+- **Storybook:** https://fabioaap.github.io/DesignSystem-ShadCN/
+- **GitHub:** https://github.com/fabioaap/DesignSystem-ShadCN
+
+---
+
+## 💡 Dica Final
+
+Se sua plataforma/framework não está listada aqui, mas suporta React + Tailwind, **funciona 100%**!
+
+Use os 3 passos universais acima e adapte conforme necessário.

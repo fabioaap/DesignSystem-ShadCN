@@ -5,7 +5,7 @@ const config: StorybookConfig = {
     "../src/stories/**/*.mdx",
     "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)",
   ],
-  
+
   addons: [
     "@storybook/addon-a11y",
     "@storybook/addon-docs",
@@ -14,16 +14,16 @@ const config: StorybookConfig = {
     "storybook-addon-pseudo-states",
     "@chromatic-com/storybook",
   ],
-  
+
   framework: {
     name: "@storybook/nextjs-vite",
     options: {},
   },
-  
+
   docs: {},
-  
+
   staticDirs: ['../public'],
-  
+
   // Configuração para GitHub Pages
   managerHead: (head) => {
     const basePath = process.env.NODE_ENV === 'production' ? '/DesignSystem-ShadCN/' : '/';
@@ -33,7 +33,7 @@ const config: StorybookConfig = {
       <link rel="icon" type="image/svg+xml" href="${basePath}favicon.svg" />
     `;
   },
-  
+
   typescript: {
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
@@ -41,7 +41,7 @@ const config: StorybookConfig = {
       propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
     },
   },
-  
+
   // Para GitHub Pages com subpath
   viteFinal: async (config) => {
     // Set base path for GitHub Pages

@@ -11,7 +11,11 @@ const config: StorybookConfig = {
     "@storybook/addon-a11y",
     "@storybook/addon-docs",
     "@storybook/addon-vitest",
-    "@storybook/addon-themes", // Novo addon
+    "@storybook/addon-themes",
+    "@storybook/addon-measure",
+    "@storybook/addon-outline",
+    "@storybook/addon-designs",
+    "storybook-addon-pseudo-states",
     "@chromatic-com/storybook",
   ],
   
